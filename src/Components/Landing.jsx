@@ -7,11 +7,10 @@ class Home extends Component {
     return( 
       <div className="container-fluid">
         <h1 className="text-center">Welcome to OH.io</h1>
-        <div className="row justify-content-center">   
+        <div>   
           <div className="col-6">
-            <button className="btn btn-primary" type="button" onClick={this.props.handleModal}>Login</button> 
+            <button className="btn btn-primary" type="button" >Login</button> 
           </div> 
-          <LoginForm closeModal={this.props.handleModal} show={this.props.show}/> 
           <div className="col-6"> 
             <button className="btn btn-primary" type="button">Register</button> 
           </div> 

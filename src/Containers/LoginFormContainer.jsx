@@ -7,7 +7,7 @@ class LoginFormContainer extends Component {
   //writer handlers here
   render() { 
     return(
-      <LoginForm handleModal={this.props.handleModal} show={this.props.show}/>         
+      <LoginForm/>         
     );
   }
 }
