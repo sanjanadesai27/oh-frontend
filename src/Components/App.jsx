@@ -5,16 +5,10 @@ import {
   Switch,
   Redirect
 } from 'react-router-dom';
-<<<<<<< HEAD
 import Landing from './Landing.jsx';
 import Login from './LoginForm.jsx';
 import Register from './Register.jsx';
 import axios from 'axios';
-=======
-
-import Login from '../Containers/LoginFormContainer';
-import Main from '../Containers/Main.jsx';
->>>>>>> e0b86ca9f6c1160a66612be04e344c29c83ddf50
 
 class App extends Component { 
   
