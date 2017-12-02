@@ -8,6 +8,7 @@ import {
 import Landing from './Landing.jsx';
 import Login from './LoginForm.jsx';
 import Register from './Register.jsx';
+import UserProfile from './UserProfile.jsx';
 import axios from 'axios';
 
 class App extends Component { 
@@ -83,6 +84,7 @@ class App extends Component {
           <Route exact path="/" render={LandingPage} />
           <Route path="/login" render={LoginPage} />
           <Route path="/register" component={Register} />
+          <Route path="/user" component={UserProfile} />
           {/* <Route path="/feed" component={Feed}/> 
         <Route path="/question/:id" component={Question}/> 
         <Route path="user/:id" component={User}/>  */}
@@ -91,4 +93,5 @@ class App extends Component {
     );
   }
 }
+
 export default App;
