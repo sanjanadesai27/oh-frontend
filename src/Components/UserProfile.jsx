@@ -35,7 +35,7 @@ var user = {
     email: "bob@mail.mcgill.ca",
     year: "U2",
     photo: "http://lorempixel.com/500/500/people",
-    bio: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat fugit quia pariatur est saepe necessitatibus, quibusdam reiciendis ratione voluptate atque in qui provident rem repellat soluta. Blanditiis repellat velit eligendi."
+    courses: "COMP 202, COMP 206"
   }
 }
 
@@ -71,15 +71,14 @@ class MainPanel extends Component {
                height={100}
             /> 
             <h2>{info.name}</h2>
-            <h3>{info.year}</h3>
-          
+            <h3>{info.email}</h3>
           <hr />
-            <p>{info.member} | {info.email}</p>
+            <p>{info.member} | {info.year}</p>
         </div>
         
         <div className="bottom">
-          <h4>Biography</h4>
-          <p>{info.bio}</p>
+          <h4>Courses</h4>
+          <p>{info.courses}</p>
         </div>
       </div>
     );
