@@ -1,0 +1,29 @@
+.FeedTitle
+{
+    text-align:center;
+    font-size: 40pt;
+    font-family: 'Dancing Script', cursive;
+}
+.Questions
+{
+    height:80px;
+    padding-left:5%;;
+    margin-bottom:2%;
+    font-family: 'Raleway', sans-serif;
+}
+.courseTitle
+{
+    font-size: 14pt;
+    font-weight: bold;
+}
+.quesTitle
+{
+    font-size: 12pt;
+
+}
+
+.quesDescription
+{
+    font-size: 10pt;
+}
+

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import NavBar from '../Components/NavBar'
+import SideBar from '../Components/SideBar'
+
 import FeedTitle from '../Components/Feed/FeedTitle';
 import Question from '../Components/Feed/Question'
 
@@ -17,12 +18,9 @@ class FeedContainer extends Component {
 
   render() { 
     let ques = this.state.ques
+    ques = ques.map(q => <Question key={q.courses_id_courses} ques={q.courses_id_courses}/>);
      return([
-        <NavBar/>,
-        <FeedTitle/>,
-        <div>
-          {ques.map(q => <Question key={q.courses_id_courses} ques={q.courses_id_courses}/>)}
-        </div>
+     <SideBar title={<FeedTitle/>} data={ques} />,
      ]);
   }
 }
