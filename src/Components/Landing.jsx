@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LoginForm from '../Containers/LoginFormContainer';
+import LoginForm from './LoginForm.jsx';
 import { withRouter } from 'react-router-dom';
 
 class Home extends Component { 
