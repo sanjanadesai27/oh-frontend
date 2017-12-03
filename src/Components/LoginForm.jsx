@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 class LoginForm extends Component {  
-  
-
 
   render() { 
     return(
@@ -40,9 +39,12 @@ class LoginForm extends Component {
               type='password'
               className="password"
             />
-            <Button color='blue' fluid size='large'>Login</Button>
+            <Form.Button color='blue' fluid size='large'>Login</Form.Button>
           </Segment>
         </Form>
+            <Message>
+              New to us? <Link to='/register'>Register!</Link>
+            </Message>
       </Grid.Column>
     </Grid>
   </div>
