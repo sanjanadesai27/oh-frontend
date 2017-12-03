@@ -10,6 +10,7 @@ import Login from './LoginForm.jsx';
 import StudentRegister from './StudentRegister.jsx';
 import UserProfile from './UserProfile.jsx';
 import Feed from '../Containers/FeedContainer';
+import EditProfile from './EditProfile.jsx';
 import User from '../Containers/UserProfileContainer';
 import { BrowserRouter } from 'react-router'
 
@@ -84,7 +85,8 @@ class App extends Component {
           <Route path="/register" component={StudentRegister} />
            <Route path="/feed" component={Feed}/> 
         {/* <Route path="/question/:id" component={Question}/>  */}
-        <Route path="/user" component={User}/> 
+        <Route path="/user" component={UserProfile}/>
+        <Route path="/edit" component={EditProfile}/> 
         </Switch> 
       </Router> 
     );
