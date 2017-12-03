@@ -10,7 +10,7 @@ import Login from './LoginForm.jsx';
 import Register from './Register.jsx';
 import UserProfile from './UserProfile.jsx';
 import Feed from '../Containers/FeedContainer';
-import User from '../Containers/UserProfileContainer';
+import EditProfile from './EditProfile.jsx';
 
 class App extends Component { 
   
@@ -84,7 +84,8 @@ class App extends Component {
           <Route path="/register" component={Register} />
            <Route path="/feed" component={Feed}/> 
         {/* <Route path="/question/:id" component={Question}/>  */}
-        <Route path="/user" component={User}/> 
+        <Route path="/user" component={UserProfile}/>
+        <Route path="/edit" component={EditProfile}/> 
         </Switch> 
       </Router> 
     );
