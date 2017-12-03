@@ -11,6 +11,7 @@ import StudentRegister from './StudentRegister.jsx';
 import UserProfile from './UserProfile.jsx';
 import Feed from '../Containers/FeedContainer';
 import User from '../Containers/UserProfileContainer';
+import { BrowserRouter } from 'react-router'
 
 class App extends Component { 
   
@@ -32,18 +33,18 @@ class App extends Component {
       method: 'POST',
       body: formData
     })
+    .then(res => res.json())
     .then((res) => { 
-      // res = JSON.parse(res)
-      // console.log("in the response");
-      console.log(res.token);
-      if(res.token) { 
-        window.localStorage.setItem("userToken", JSON.stringify(res.token)); //storing token in local storage
+      let token = res.token;
+      if(token) { 
+        window.localStorage.setItem("userToken", JSON.stringify(res.token));
         this.setState({
           isLoggedIn: true
           // userId: token.id
-        });
-        <Redirect to='/feed'/>
-      } else { 
+         });
+        //  history.push('/feed')
+      } 
+      else { 
         this.setState({ 
           loginError: "User not found"
         });
