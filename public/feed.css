@@ -1,8 +1,16 @@
+.navWrapper
+{
+    height:100%;
+    
+
+}
+
 .FeedTitle
 {
     text-align:center;
-    font-size: 40pt;
-    font-family: 'Dancing Script', cursive;
+    font-size: 30pt;
+    font-family: 'Raleway', sans-serif;
+    padding-left:5%;
 }
 .Questions
 {
@@ -19,7 +27,6 @@
 .quesTitle
 {
     font-size: 12pt;
-
 }
 
 .quesDescription
