@@ -8,6 +8,7 @@ import {
 import Landing from './Landing.jsx';
 import Login from './LoginForm.jsx';
 import Register from './Register.jsx';
+import UserProfile from './UserProfile.jsx';
 import axios from 'axios';
 import Feed from '../Containers/FeedContainer';
 
@@ -93,4 +94,5 @@ class App extends Component {
     );
   }
 }
+
 export default App;
