@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Sidebar, Segment, Button, Menu, Image, Icon, Header } from 'semantic-ui-react'
-import Question from '../Components/Feed/Question'
-
+import { Sidebar, Divider,Segment, Button, Menu, Image, Icon, Header } from 'semantic-ui-react'
+import Title from './AppTitle';
 
 class SidebarLeftSlideAlong extends Component {
   state = { visible: false }
@@ -12,7 +11,10 @@ class SidebarLeftSlideAlong extends Component {
     const { visible } = this.state
     return (
       <div className="NavWrapper">
-        <Button onClick={this.toggleVisibility}>Menu</Button>
+        <Button className="feedBtn" onClick={this.toggleVisibility} > 
+        <Icon size="large" name="content" />
+        </Button>
+        <Title />
         <Sidebar.Pushable as={Segment}>
           <Sidebar as={Menu} animation='slide along' width='thin' visible={visible} icon='labeled' vertical inverted>
             <Menu.Item name='home'>
@@ -31,10 +33,14 @@ class SidebarLeftSlideAlong extends Component {
           <Sidebar.Pusher>
             <Segment basic>
               <Header as='h3'></Header>
+              <Segment >
                 {this.props.title}
-              {<div>
+        
+                <Divider fitted />
+                {<div>
                      {this.props.data.map(q => q)}
                 </div>}
+                </Segment>
               <Image src='/assets/images/wireframe/paragraph.png' />
             </Segment>
           </Sidebar.Pusher>
