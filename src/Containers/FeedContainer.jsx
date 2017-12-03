@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import SideBar from '../Components/SideBar'
-
 import FeedTitle from '../Components/Feed/FeedTitle';
 import Question from '../Components/Feed/Question'
-import { lchmod } from 'fs';
 
 class FeedContainer extends Component { 
   constructor(){
