@@ -23,14 +23,10 @@ class App extends Component {
 
     }
   }
-
   loginHandler = (e) => { 
-    console.log("got to the handler");
     e.preventDefault();
-    let email = document.querySelector(".email").value; 
-    let password = document.querySelector(".password").value; 
-    console.log(email);
-    console.log(password);
+    let email = document.querySelector('div.field.email input[name="email"]').value; 
+    let password = document.querySelector('div.field.password input[name="password"]').value; 
     let formData = new FormData();
     formData.append("email", email);
     formData.append("password", password);
