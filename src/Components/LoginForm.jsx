@@ -2,7 +2,16 @@ import React, { Component } from 'react';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 class LoginForm extends Component {  
+  
+  constructor() { 
+    super();
+    this.state = { 
+      name: '',
+      password: ''
+    }
+  }
 
+  
   render() { 
     return(
     <div className='login-form'>
@@ -31,6 +40,7 @@ class LoginForm extends Component {
               iconPosition='left'
               placeholder='E-mail address'
               className="email"
+              name="email"
             />
             <Form.Input
               fluid
@@ -39,6 +49,7 @@ class LoginForm extends Component {
               placeholder='Password'
               type='password'
               className="password"
+              name="password"
             />
             <Form.Button color='blue' fluid size='large'>Login</Form.Button>
           </Segment>
