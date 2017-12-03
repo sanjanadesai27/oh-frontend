@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import Landing from './Landing.jsx';
 import Login from './LoginForm.jsx';
-import Register from './Register.jsx';
+import StudentRegister from './StudentRegister.jsx';
 import UserProfile from './UserProfile.jsx';
 import Feed from '../Containers/FeedContainer';
 import User from '../Containers/UserProfileContainer';
@@ -25,9 +25,12 @@ class App extends Component {
   }
 
   loginHandler = (e) => { 
+    console.log("got to the handler");
     e.preventDefault();
     let email = document.querySelector(".email").value; 
     let password = document.querySelector(".password").value; 
+    console.log(email);
+    console.log(password);
     let formData = new FormData();
     formData.append("email", email);
     formData.append("password", password);
@@ -81,7 +84,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={LandingPage} />
           <Route path="/login" render={LoginPage} />
-          <Route path="/register" component={Register} />
+          <Route path="/register" component={StudentRegister} />
            <Route path="/feed" component={Feed}/> 
         {/* <Route path="/question/:id" component={Question}/>  */}
         <Route path="/user" component={User}/> 
