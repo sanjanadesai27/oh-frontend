@@ -15,7 +15,10 @@ class FeedContainer extends Component {
       error:""};
   }
   componentDidMount(){
-    fetch('/feed/1')
+    let token = JSON.parse(window.localStorage.getItem("userToken"));
+    let headers = new Headers();
+    headers.append("Authorization", token);
+    fetch(`/feed/${token.id}`,headers)
     .catch(error => this.setState({error:error.message}))
     .then(res => res.json())
     .then(info => this.setState({

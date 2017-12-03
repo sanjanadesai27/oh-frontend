@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
 class LoginForm extends Component {  
+  
+
+
   render() { 
     return(
     <div className='login-form'>
@@ -27,6 +30,7 @@ class LoginForm extends Component {
               icon='user'
               iconPosition='left'
               placeholder='E-mail address'
+              className="email"
             />
             <Form.Input
               fluid
@@ -34,6 +38,7 @@ class LoginForm extends Component {
               iconPosition='left'
               placeholder='Password'
               type='password'
+              className="password"
             />
             <Button color='blue' fluid size='large'>Login</Button>
           </Segment>

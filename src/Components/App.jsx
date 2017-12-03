@@ -9,7 +9,6 @@ import Landing from './Landing.jsx';
 import Login from './LoginForm.jsx';
 import Register from './Register.jsx';
 import UserProfile from './UserProfile.jsx';
-import axios from 'axios';
 import Feed from '../Containers/FeedContainer';
 
 class App extends Component { 
@@ -26,18 +25,24 @@ class App extends Component {
 
   loginHandler = (e) => { 
     e.preventDefault();
-    let formElem = e.target;
-    let email = document.querySelector("#email").value; 
-    let password = document.querySelector("#password").value; 
-    axios.post('/login',{email, password})
+    let email = document.querySelector(".email").value; 
+    let password = document.querySelector(".password").value; 
+    let formData = new FormData();
+    formData.append("email", email);
+    formData.append("password", password);
+    fetch('/login',{
+      method: 'POST',
+      body: formData,
+    })
     .then((res) => { 
       res = JSON.parse(res)
       if(res.token) { 
-        window.localStorage.set("userToken", res.token); //storing token in local storage
+        window.localStorage.setItem("userToken", JSON.stringify(res.token)); //storing token in local storage
         this.setState({
           isLoggedIn: true
           // userId: token.id
         });
+        <Redirect to='/feed'/>
       } else { 
         this.setState({ 
           loginError: "User not found"
@@ -60,15 +65,6 @@ class App extends Component {
       <Redirect to="/login"/> 
     }
   }
-
-  // componentDidUpdate() { 
-  //   if (!this.state.isLoggedIn) {
-  //     this.setState({
-  //       loginError: "User not found"
-  //     });
-  //     <Redirect to="/login" />
-  //   }
-  // }
 
   render() { 
     const LoginPage = (props) => {
