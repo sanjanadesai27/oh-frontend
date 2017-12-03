@@ -3,25 +3,46 @@ import SideBar from '../Components/SideBar'
 
 import FeedTitle from '../Components/Feed/FeedTitle';
 import Question from '../Components/Feed/Question'
+import { lchmod } from 'fs';
 
 class FeedContainer extends Component { 
-  
   constructor(){
     super()
-    this.state = {ques: []}
+    this.state = {
+      student:[],
+      questions:[],
+      courses:[],
+      error:""};
   }
   componentDidMount(){
     fetch('/feed/1')
+    .catch(error => this.setState({error:error.message}))
     .then(res => res.json())
-    .then(ques => this.setState({ques}))
+    .then(info => this.setState({
+      student:info[0],
+      questions:((info[0]).courses.map(x => x.questions)).reduce((a,b)=>a.concat(b)),
+      courses:(info[0].courses).map(x => [x.id_courses,""+x.department+" "+ x.number])
+    }))
   }
-
   render() { 
-    let ques = this.state.ques
-    ques = ques.map(q => <Question key={q.courses_id_courses} ques={q.courses_id_courses}/>);
+    //get student record
+    let courses= this.state.courses;
+    console.log(courses);
+    let student = this.state.student;
+    let questions = this.state.questions;
+    let checkId = function(x){
+      for(var i=0; i<courses.length; i++){
+        if (courses[i][0]===x)
+        {
+        return courses[i][1];
+        }
+      }
+    }
+    questions = questions.map(q => <Question key={q.id_questions} ques={q.questionText} title={ checkId(q.courseIdCourses) } />);
      return([
-     <SideBar title={<FeedTitle/>} data={ques} />,
+     <SideBar title={<FeedTitle/>} data={questions}  />,
      ]);
+
   }
 }
 export default FeedContainer;

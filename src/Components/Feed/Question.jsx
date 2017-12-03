@@ -4,15 +4,15 @@ class Question extends Component {
   render() { 
      return(
        <div className="Questions">
+       
           <div className="courseTitle">
-              Course
+             {this.props.title}
           </div>
-          <div className="quesTitle">
-              Question Title
-          </div>
+
           <div className="quesDescription">
-            <p>Description</p>
+            <p>{this.props.ques}</p>
           </div>
+
         </div>
       );
   }

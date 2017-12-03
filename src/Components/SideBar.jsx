@@ -19,13 +19,13 @@ class SidebarLeftSlideAlong extends Component {
               <Icon name='home' />
               Home
             </Menu.Item>
-            <Menu.Item name='gamepad'>
-              <Icon name='gamepad' />
+            <Menu.Item name='user'>
+              <Icon name='user' />
               Your Profile
             </Menu.Item>
-            <Menu.Item name='camera'>
-              <Icon name='camera' />
-              
+            <Menu.Item name='sign out'>
+              <Icon name='sign out' />
+              Sign Out
             </Menu.Item>
           </Sidebar>
           <Sidebar.Pusher>
@@ -33,7 +33,7 @@ class SidebarLeftSlideAlong extends Component {
               <Header as='h3'></Header>
                 {this.props.title}
               {<div>
-                    {this.props.data.map(q => q)}
+                     {this.props.data.map(q => q)}
                 </div>}
               <Image src='/assets/images/wireframe/paragraph.png' />
             </Segment>
