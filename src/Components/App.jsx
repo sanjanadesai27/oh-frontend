@@ -27,15 +27,15 @@ class App extends Component {
     e.preventDefault();
     let email = document.querySelector('div.field.email input[name="email"]').value; 
     let password = document.querySelector('div.field.password input[name="password"]').value; 
-    let formData = new FormData();
-    formData.append("email", email);
-    formData.append("password", password);
+    let formData = { email, password };
     fetch('/login',{
       method: 'POST',
-      body: formData,
+      body: formData
     })
     .then((res) => { 
-      res = JSON.parse(res)
+      // res = JSON.parse(res)
+      // console.log("in the response");
+      console.log(res.token);
       if(res.token) { 
         window.localStorage.setItem("userToken", JSON.stringify(res.token)); //storing token in local storage
         this.setState({
