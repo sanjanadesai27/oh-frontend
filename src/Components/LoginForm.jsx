@@ -6,7 +6,8 @@ class LoginForm extends Component {
   render() { 
     return(
     <div className='login-form'>
-    <style>{`
+    <style>
+      {`
         body > div,
         body > div > div,
         body > div > div > div.login-form {

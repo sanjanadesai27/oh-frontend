@@ -27,10 +27,10 @@ class App extends Component {
   loginHandler = (e) => { 
     console.log("got to the handler");
     e.preventDefault();
+
     let email = document.querySelector(".email").value; 
-    let password = document.querySelector(".password").value; 
-    console.log(email);
-    console.log(password);
+    let password = document.querySelector(".password").value;
+
     let formData = new FormData();
     formData.append("email", email);
     formData.append("password", password);
