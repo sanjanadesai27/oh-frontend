@@ -4,7 +4,7 @@ class FeedTitle extends Component {
   render() { 
      return(
        <div className="FeedTitle">
-           Home
+           HOME
         </div>
       );
   }
