@@ -3,15 +3,6 @@ import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui
 import { Link } from 'react-router-dom';
 class LoginForm extends Component {  
   
-  constructor() { 
-    super();
-    this.state = { 
-      name: '',
-      password: ''
-    }
-  }
-
-  
   render() { 
     return(
     <div className='login-form'>
