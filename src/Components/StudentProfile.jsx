@@ -42,15 +42,6 @@ class MainPanel extends Component {
     return (
      <div>
         <div className="top">
-        <p>
-        <Header as='h2' icon>
-          <Icon name='settings' />
-            Account Settings
-          <Header.Subheader>
-            Manage your account settings
-          </Header.Subheader>
-        </Header>
-        </p>
         <script src="EditStudent.js"></script>
             <Avatar 
                image={info.photo} 
