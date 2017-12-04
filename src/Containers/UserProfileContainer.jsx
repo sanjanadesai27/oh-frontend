@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import UserProfile from '../Components/UserProfile.jsx';
+import SideBar from '../Components/SideBar';
+import UserTitle from '../Components/UserTitle';
 
 class UserProfileContainer extends Component {
 
@@ -19,10 +21,13 @@ class UserProfileContainer extends Component {
   }
 
   render() {
+
     let userInfo = this.state.userInformation
-     return([
-      <UserProfile userInformation = {userInfo} /> 
-     ]);
+    let d = [<UserProfile userInformation = {userInfo} />];
+
+     return(
+        <SideBar title={<UserTitle/>} data={d}/>
+     )
   }
 
 }

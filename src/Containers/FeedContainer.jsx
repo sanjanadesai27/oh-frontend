@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import SideBar from '../Components/SideBar'
+import SideBar from '../Components/SideBar';
 import FeedTitle from '../Components/Feed/FeedTitle';
-import Question from '../Components/Feed/Question'
+import Question from '../Components/Feed/Question';
+import AddQuestion from '../Components/Feed/AddQuestion';
 import {withRouter } from 'react-router-dom';
 
 class FeedContainer extends Component { 
   constructor(){
     super()
     this.state = {
+      id:[],
       student:[],
       questions:[],
       courses:[],
@@ -16,6 +18,7 @@ class FeedContainer extends Component {
   componentDidMount(){
     let token = JSON.parse(window.localStorage.getItem("userToken"));
     let id = JSON.parse(window.localStorage.getItem("id"));
+    this.setState({id:id})
     let headers = new Headers();
     headers.append("Authorization", token);
     fetch(`/feed/${id}`,headers)
@@ -42,9 +45,9 @@ class FeedContainer extends Component {
       }
     }
     questions = questions.map(q => <Question key={q.id_questions} ques={q.questionText} title={ checkId(q.courseIdCourses) } />);
-     
+    questions.push(<AddQuestion />)
     return([
-     <SideBar title={<FeedTitle/>} data={questions}  />,
+     <SideBar title={<FeedTitle/>} data={questions}/>,
      ]);
 
   }
