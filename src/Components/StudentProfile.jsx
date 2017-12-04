@@ -35,10 +35,6 @@ class MainPanel extends Component {
   render() {
     var info = this.props.info;
     if (!info) return null;
-
-    // state = { activeItem: 'home' }
-    // handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
     return (
      <div>
         <div className="top">
@@ -55,34 +51,10 @@ class MainPanel extends Component {
           <hr />
             <p>{info.member} | {info.year}</p>
         </div>
-        {/* <div>
-        <Menu pointing secondary>
-          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
-          <Menu.Item name='messages' active={activeItem === 'messages'} onClick={this.handleItemClick} />
-          <Menu.Item name='friends' active={activeItem === 'friends'} onClick={this.handleItemClick} />
-          <Menu.Menu position='right'>
-            <Menu.Item name='logout' active={activeItem === 'logout'} onClick={this.handleItemClick} />
-          </Menu.Menu>
-        </Menu>
-
-        <Segment>
-          <img src='/assets/images/wireframe/media-paragraph.png' />
-        </Segment>
-      </div> */}
         <div className="bottom">
           <h4>Courses</h4>
           <p>{info.courses}</p>
           <div id="container"></div>
-          <p>
-          <Button animated>
-            <Button.Content visible> Edit your courses </Button.Content>
-            <Button.Content hidden>
-            <Icon name='right arrow' />
-            </Button.Content>
-            </Button>
-          </p>
-          <p>
-          </p>
         </div>
       </div>
     );

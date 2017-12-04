@@ -20,13 +20,17 @@ class UserTitle extends Component {
     })
   }
   render() {
-    return(<Header as='h2' icon>
-    <Icon name='settings' />
-      Account Settings
-    <Header.Subheader>
-      Manage your account settings
-    </Header.Subheader>
-    </Header>);
+    return(
+      <div className = "UserTitle">
+            <Header as='h2' icon>
+            <Icon name='settings' />
+            Account Settings
+            <Header.Subheader>
+            Manage your account settings
+            </Header.Subheader>
+          </Header>
+    </div>
+    );
   }
 }
 export default UserTitle;

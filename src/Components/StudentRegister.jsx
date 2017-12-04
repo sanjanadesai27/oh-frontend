@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Segment, Grid, Header, Form, Message, Select } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import AppTitle from './AppTitle'
 
 const options = [
   { key: 'U0', text: 'U0', value: 'U0'},
@@ -14,6 +15,8 @@ const options = [
 class StudentRegister extends Component {
   render() {
        return (
+         <div>
+      <AppTitle />
       <div className='login-form'>
         <style>
           {`
@@ -74,6 +77,7 @@ class StudentRegister extends Component {
             </Message>
           </Grid.Column>
         </Grid>
+        </div>
       {/* <Segment>
       <div>
       <h2>Register!</h2>  

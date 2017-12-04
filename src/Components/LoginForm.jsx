@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
+import AppTitle from './AppTitle'
 
 class LoginForm extends Component {  
 
   render() { 
     return(
     <div className='login-form'>
+    <AppTitle />
     <style>
       {`
         body > div,

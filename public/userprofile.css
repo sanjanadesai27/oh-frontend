@@ -6,19 +6,17 @@ body {
   }
   
   #user-profile {
-    width: 100%;
-    max-width: 450px;
-    margin: 0 auto;
-    border-radius: 5px;
+    width: 400px;
+    margin-left: 27%;
+    /* margin: 0 auto; */
+    /* border-radius: 5px; */
     text-align: center;
     overflow: hidden;
-    box-shadow: 2px 2px 5px #000;
-    border: 1px solid #000;
-    background-color: #60a568;
-    background-image: radial-gradient(#55965d 15%, rgba(0, 0, 0, 0) 16%), radial-gradient(#55965d 15%, rgba(0, 0, 0, 0) 16%);
+    /* box-shadow: 2px 2px 5px #000; */
+    /* border: 1px solid #000; */
     background-size: 60px 60px;
     background-position: 0 0, 30px 30px;
-  }
+}
   #user-profile hr {
     margin: 20px auto;
     width: 50px;
@@ -40,9 +38,6 @@ body {
   #user-profile p {
     font-size: 14px;
   }
-  #user-profile .top, #user-profile .bottom {
-    padding: 30px;
-  }
   #user-profile .bottom {
     background-color: rgba(255, 255, 255, 0.3);
     text-align: left;
@@ -57,3 +52,21 @@ body {
   #user-profile .avatar img {
     width: 100%;
   }
+
+  .ui.icon.header:first-child {
+    margin-top: 10px;
+    align-content: center;
+    margin-left: 35%;
+    padding-top: 20px;
+}
+
+#user-profile .top, #user-profile .bottom {
+  padding: 30px;
+  background-color: rgba(197, 228, 251, 0.7);
+  margin-top: 10px;
+}
+
+.ui.button, .ui.buttons .button, .ui.buttons .or {
+  font-size: 1rem;
+  margin-top: 7px;
+}

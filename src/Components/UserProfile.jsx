@@ -4,12 +4,12 @@ import { Header, Icon, Button, Grid, Image, Menu, Segment } from 'semantic-ui-re
 
 var user = {
   basicInfo: {
-    name: "Bob the Constructor",
+    name: "Person",
     member: "Student",
-    email: "bob@mail.mcgill.ca",
-    year: "U2",
-    photo: "http://lorempixel.com/500/500/people",
-    courses: "COMP 202, COMP 206"
+    email: "ashvitha297@gmail.com",
+    year: "U3",
+    photo: "https://cdn.pixabay.com/photo/2016/08/20/05/51/avatar-1606939_1280.png",
+    courses: "COMP 307, COMP 350, COMP 360, COMP 350"
   }
 }
 
@@ -35,10 +35,6 @@ class MainPanel extends Component {
   render() {
     var info = this.props.info;
     if (!info) return null;
-
-    // state = { activeItem: 'home' }
-    // handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
     return (
      <div>
         <div className="top">
@@ -55,35 +51,14 @@ class MainPanel extends Component {
           <hr />
             <p>{info.member} | {info.year}</p>
         </div>
-        {/* <div>
-        <Menu pointing secondary>
-          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
-          <Menu.Item name='messages' active={activeItem === 'messages'} onClick={this.handleItemClick} />
-          <Menu.Item name='friends' active={activeItem === 'friends'} onClick={this.handleItemClick} />
-          <Menu.Menu position='right'>
-            <Menu.Item name='logout' active={activeItem === 'logout'} onClick={this.handleItemClick} />
-          </Menu.Menu>
-        </Menu>
-
-        <Segment>
-          <img src='/assets/images/wireframe/media-paragraph.png' />
-        </Segment>
-      </div> */}
         <div className="bottom">
           <h4>Courses</h4>
           <p>{info.courses}</p>
           <div id="container"></div>
-          <p>
-          <Button animated>
-            <Button.Content visible> Edit your courses </Button.Content>
-            <Button.Content hidden>
-            <Icon name='right arrow' />
-            </Button.Content>
-            </Button>
-          </p>
-          <p>
-          </p>
         </div>
+        <Button className="userBtn">
+       Add Course
+      </Button>
       </div>
     );
   }
