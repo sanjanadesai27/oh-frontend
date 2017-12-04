@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
-import { Link,history,withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
-class LoginForm extends Component { 
+class LoginForm extends Component {  
+
   render() { 
     return(
     <div className='login-form'>
