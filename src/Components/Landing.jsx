@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import LoginForm from './LoginForm.jsx';
 import { withRouter } from 'react-router-dom';
 import { Button, Container, Header, Icon, Segment } from 'semantic-ui-react';
 
@@ -10,7 +9,7 @@ class Home extends Component {
   }
 
   handleRegister = () => { 
-    this.props.history.push('/register');
+    this.props.history.push('/studentregister');
   }
 
   render() { 

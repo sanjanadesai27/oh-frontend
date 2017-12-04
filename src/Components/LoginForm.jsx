@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
+import { Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 
 class LoginForm extends Component {  
@@ -22,7 +22,7 @@ class LoginForm extends Component {
     >
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as='h2' color='blue' textAlign='center'>
-          {' '}Log-in to your account
+          {' '}Login to your account
           </Header>
         <Form size='large' onSubmit={this.props.submitHandler}>
           <Segment stacked>
@@ -47,7 +47,7 @@ class LoginForm extends Component {
           </Segment>
         </Form>
             <Message>
-              New to us? <Link to='/register'>Register!</Link>
+              New to us? <Link to='/studentregister'>Register!</Link>
             </Message>
       </Grid.Column>
     </Grid>
