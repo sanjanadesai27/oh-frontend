@@ -11,6 +11,9 @@ const options = [
 ];
 
 class StudentRegister extends Component {
+  state = {};
+  handleChange = (e, { value }) => this.setState({ value });
+
   render() {
 
      return (
@@ -35,7 +38,7 @@ class StudentRegister extends Component {
               <Form.Group widths='equal'>
                 <Form.Input label='First name' placeholder='First name' />
                 <Form.Input label='Last name' placeholder='Last name' />
-                <Form.Select options={options} placeholder='U0'/> 
+                <Form.Select options={options} placeholder='Year'/> 
               </Form.Group>
                 <Form.Input
                   fluid
@@ -52,6 +55,11 @@ class StudentRegister extends Component {
                   type='password'
                   className="password"
                 />
+               <Form.Group inline>
+                 <label>Student or Tutor</label>
+                 <Form.Field control={Radio} label='Student' value='student' checked={value === 'student'} onChange={this.handleChange} />
+                 <Form.Field control={Radio} label='Tutor' value='tutor' checked={value === 'tutor'} onChange={this.handleChange} />
+               </Form.Group>
                 <Form.Button color='blue' fluid size='large'>Register</Form.Button>
             </Form>
             <Message>
