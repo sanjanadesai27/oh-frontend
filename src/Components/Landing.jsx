@@ -17,7 +17,7 @@ class Home extends Component {
       <Segment
         inverted
         textAlign='center'
-        style={{ minHeight: 700, padding: '1em 0em' }}
+        style={{ minHeight: 700, padding: '0em 0em' }}
         vertical
       >
       <Container text>
@@ -25,7 +25,7 @@ class Home extends Component {
           as='h1'
           content='OH.io'
           inverted
-          style={{ fontSize: '4em', fontWeight: 'normal', marginBottom: 0, marginTop: '3em' }}
+          style={{ fontSize: '4em', fontWeight: 'normal', marginBottom: 0, marginTop: '0em' }}
         />
         <Header
           as='h2'
