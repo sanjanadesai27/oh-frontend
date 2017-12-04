@@ -1,42 +1,53 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Input, Button, Modal, Divider, Form, Label } from 'semantic-ui-react'
+import { Form, Segment, Button, Message, Grid, Header, Radio, Input, Divider, Label } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+
+const options = [ 
+    { key: 'U0', text: 'U0', value: 'U0'},
+    { key: 'U1', text: 'U1', value: 'U1' },
+    { key: 'U2', text: 'U2', value: 'U2' },
+    { key: 'U3', text: 'U3', value: 'U3' },
+    { key: 'U4', text: 'U4', value: 'U4' }
+  ];
 
 class EditStudent extends Component {
+
     state = { open: false }
         closeConfigShow = (closeOnEscape, closeOnRootNodeClick) => () => {
         this.setState({ closeOnEscape, closeOnRootNodeClick, open: true })
     }
+
     close = () => this.setState({ open: false })
 
     render() {
         const { open, closeOnEscape, closeOnRootNodeClick } = this.state
         
-      return (
+        return (
         <div>
-            <div>
+                <div>
                 <Form>
-                <Form.Field>
+                <Form.Field inline>
                 <input type='text' placeholder='First name' />
-                <Label pointing>Please enter a value</Label>
+                {/* <Label pointing>Please enter a value</Label> */}
                 </Form.Field>
                 <Divider />
 
-                <Form.Field>
-                <Label pointing='below'>Please enter a value</Label>
+                <Form.Field inline>
+                {/* <Label pointing='below'>Please enter a value</Label> */}
                 <input type='text' placeholder='Last Name' />
                 </Form.Field>
                 <Divider />
 
-                <Form.Field>
-                <Label pointing='below'>Please enter a value</Label>
+                <Form.Field inline>
                 <input type='text' placeholder='Email address' />
+                {/* <Label pointing='left'>Please provide your school email</Label> */}
                 </Form.Field>
                 <Divider />
 
                 <Form.Field inline>
                 <input type='text' placeholder='Username' />
-                <Label pointing='left'>That name is taken!</Label>
+                {/* <Label pointing='left'>That name is taken!</Label> */}
                 </Form.Field>
                 <Divider />
 
@@ -75,7 +86,6 @@ class EditStudent extends Component {
                 </Button.Group>
             </div>
        </div>
-
       );
     }
   }

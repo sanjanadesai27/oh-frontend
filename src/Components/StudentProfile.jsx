@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Header, Icon, Button, Grid, Image, Menu, Segment } from 'semantic-ui-react'
+import { Header, Icon, Button, Grid, Image, Menu, Segment, Message } from 'semantic-ui-react'
+import { Redirect, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 var user = {
   basicInfo: {
@@ -32,12 +34,15 @@ class Avatar extends Component {
 }
 
 class MainPanel extends Component {
+
+  handleEdit = () => {
+    console.log('edit profile');
+    <Redirect to="/edit"/> 
+  };
+
   render() {
     var info = this.props.info;
     if (!info) return null;
-
-    // state = { activeItem: 'home' }
-    // handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
     return (
      <div>
@@ -47,7 +52,7 @@ class MainPanel extends Component {
           <Icon name='settings' />
             Account Settings
           <Header.Subheader>
-            Manage your account settings
+            {/* Manage your account settings */}
           </Header.Subheader>
         </Header>
         </p>
@@ -63,21 +68,17 @@ class MainPanel extends Component {
             <div class="clearfix"></div>
           <hr />
             <p>{info.member} | {info.year}</p>
+            <hr />
+            <Button circular icon='settings' onClick={this.handleEdit}>
+            </Button>
+
         </div>
-        {/* <div>
-        <Menu pointing secondary>
-          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
-          <Menu.Item name='messages' active={activeItem === 'messages'} onClick={this.handleItemClick} />
-          <Menu.Item name='friends' active={activeItem === 'friends'} onClick={this.handleItemClick} />
-          <Menu.Menu position='right'>
-            <Menu.Item name='logout' active={activeItem === 'logout'} onClick={this.handleItemClick} />
-          </Menu.Menu>
-        </Menu>
+        <div>
 
         <Segment>
           <img src='/assets/images/wireframe/media-paragraph.png' />
         </Segment>
-      </div> */}
+      </div>
         <div className="bottom">
           <h4>Courses</h4>
           <p>{info.courses}</p>
@@ -110,4 +111,4 @@ class StudentProfile extends Component {
 
 ReactDOM.render(<StudentProfile />, document.getElementById('root'))
 
-export default StudentProfile; 
+export default withRouter(StudentProfile); 

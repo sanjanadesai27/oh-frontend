@@ -1,21 +1,21 @@
 body {
     color: black;
     background-color: #f7f0f3;
-    padding: 20px 30px;
+    /* padding: 20px 30px; */
     font-family: sans-serif;
   }
   
   #user-profile {
     width: 100%;
-    max-width: 450px;
+    /* max-width: 450px; */
     margin: 0 auto;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     text-align: center;
     overflow: hidden;
-    box-shadow: 2px 2px 5px #000;
-    border: 1px solid #000;
+    /* box-shadow: 2px 2px 5px #000; */
+    /* border: 1px solid #000; */
     background-color: #89c2f3;
-    background-image: radial-gradient(#f0faf1 15%, rgba(0, 0, 0, 0) 16%), radial-gradient(#f0faf1 15%, rgba(0, 0, 0, 0) 16%);
+    /* background-image: radial-gradient(#f0faf1 15%, rgba(0, 0, 0, 0) 16%), radial-gradient(#f0faf1 15%, rgba(0, 0, 0, 0) 16%); */
     background-size: 60px 60px;
     background-position: 0 0, 30px 30px;
   }
@@ -62,4 +62,4 @@ body {
     background: #f2f5ff;
     border-radius:5px;
     padding:2px 4px;
-}
+  }

@@ -3,7 +3,7 @@ import { Form, Segment, Button, Message, Grid, Header, Radio } from 'semantic-ui
 import { Link } from 'react-router-dom';
 
 const options = [ 
-  {key: 'U0', text: 'U0', value: 'U0'},
+  { key: 'U0', text: 'U0', value: 'U0'},
   { key: 'U1', text: 'U1', value: 'U1' },
   { key: 'U2', text: 'U2', value: 'U2' },
   { key: 'U3', text: 'U3', value: 'U3' },
@@ -57,8 +57,8 @@ class StudentRegister extends Component {
                 />
                <Form.Group inline>
                  <label>Student or Tutor</label>
-                 <Form.Field control={Radio} label='Student' value='student' checked={value === 'student'} onChange={this.handleChange} />
-                 <Form.Field control={Radio} label='Tutor' value='tutor' checked={value === 'tutor'} onChange={this.handleChange} />
+                 {/* <Form.Field control={Radio} label='Student' value='student' checked={value === 'student'} onChange={this.handleChange} /> */}
+                 {/* <Form.Field control={Radio} label='Tutor' value='tutor' checked={value === 'tutor'} onChange={this.handleChange} /> */}
                </Form.Group>
                 <Form.Button color='blue' fluid size='large'>Register</Form.Button>
             </Form>

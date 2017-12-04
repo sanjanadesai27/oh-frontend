@@ -10,8 +10,8 @@ import Login from './LoginForm.jsx';
 import StudentRegister from './StudentRegister.jsx';
 import Feed from '../Containers/FeedContainer';
 import StudentProfile from './StudentProfile.jsx';
-// import TutorProfile from './TutorProfile.jsx';
-// import EditStudent from './EditStudent.jsx';
+import TutorProfile from './TutorProfile.jsx';
+import EditStudent from './EditStudent.jsx';
 // import EditTutor from './EditTutor.jsx';
 import { BrowserRouter } from 'react-router'
 
@@ -87,9 +87,9 @@ class App extends Component {
            <Route path="/feed" component={Feed}/> 
         {/* <Route path="/question/:id" component={Question}/>  */}
         <Route path="/student" component={StudentProfile}/>
-        {/* <Route path="/tutor" component={TutorProfile}/>
-        <Route path="/student/edit" component={EditStudent}/>
-        <Route path="/tutor/edit" component={EditTutor}/>  */}
+        <Route path="/tutor" component={TutorProfile}/>
+        <Route path="/edit" component={EditStudent}/>
+        {/* <Route path="/tutor/edit" component={EditTutor}/>  */}
         </Switch> 
       </Router> 
     );
