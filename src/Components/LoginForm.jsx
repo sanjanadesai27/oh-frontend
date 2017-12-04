@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
-class LoginForm extends Component {  
-  
+import { Link,history,withRouter } from 'react-router-dom';
+
+class LoginForm extends Component { 
   render() { 
     return(
     <div className='login-form'>
@@ -54,4 +54,4 @@ class LoginForm extends Component {
     );
     }
   }
-export default LoginForm; 
+export default withRouter(LoginForm); 

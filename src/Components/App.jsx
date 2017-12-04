@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import history from './history.js';
 import { 
-  BrowserRouter as Router,
+  Router,
   Route, 
   Switch,
+  withRouter,
   Redirect
 } from 'react-router-dom';
-import { withRouter } from 'react-router'
 import Landing from './Landing.jsx';
 import Login from './LoginForm.jsx';
 import StudentRegister from './StudentRegister.jsx';
@@ -21,7 +22,6 @@ class App extends Component {
       isLoggedIn: false,
       userId: null,
       loginError: '',
-
     }
   }
   loginHandler = (e) => { 
@@ -39,30 +39,27 @@ class App extends Component {
     })
     .then(res => res.json())
     .then((res) => { 
-
       let token = res.token;
-      console.log(res);
       if(token) { 
         window.localStorage.setItem("userToken", JSON.stringify(res.token));
+        window.localStorage.setItem("id", res.user.id);
         this.setState({
           isLoggedIn: true,
           userId: res.user.id
          });
-    
-         var transitionTo = Router.transitionTo;
-         transitionTo('/feed');
+           history.push('/feed');
       } 
       else { 
         this.setState({ 
           loginError: "User not found"
         });
-        <Redirect to="/login"/> 
+         history.push('/feed');
       }
     }).catch((err) => { 
       this.setState({
         loginError: "User not found"
       });
-      <Redirect to="/login" /> 
+         history.push('/feed');
     })
   }
 
@@ -85,7 +82,7 @@ class App extends Component {
     }
 
     return(
-      <Router> 
+      <Router history={history}> 
         <Switch>
           <Route exact path="/" render={LandingPage} />
           <Route path="/login" render={LoginPage} />

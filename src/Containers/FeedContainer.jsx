@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SideBar from '../Components/SideBar'
 import FeedTitle from '../Components/Feed/FeedTitle';
 import Question from '../Components/Feed/Question'
+import {withRouter } from 'react-router-dom';
 
 class FeedContainer extends Component { 
   constructor(){
@@ -14,9 +15,10 @@ class FeedContainer extends Component {
   }
   componentDidMount(){
     let token = JSON.parse(window.localStorage.getItem("userToken"));
+    let id = JSON.parse(window.localStorage.getItem("id"));
     let headers = new Headers();
     headers.append("Authorization", token);
-    fetch(`/feed/${token.id}`,headers)
+    fetch(`/feed/${id}`,headers)
     .catch(error => this.setState({error:error.message}))
     .then(res => res.json())
     .then(info => this.setState({
@@ -47,4 +49,4 @@ class FeedContainer extends Component {
 
   }
 }
-export default FeedContainer;
+export default withRouter(FeedContainer);
