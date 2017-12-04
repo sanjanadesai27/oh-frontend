@@ -34,7 +34,7 @@ class SidebarLeftSlideAlong extends Component {
             </Menu.Item>
             <Menu.Item name='sign out'>
               <Icon name='sign out' />
-              Sign Out
+              <Link to='/login'> Sign out</Link>
             </Menu.Item>
           </Sidebar>
           <Sidebar.Pusher>

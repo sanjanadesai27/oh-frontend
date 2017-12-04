@@ -14,7 +14,7 @@ class Question extends Component {
                 {this.props.title}
               </div>
               <div className="quesDescription">
-                <p>{this.props.ques}</p>
+                {this.props.ques}
               </div>
           </div>
 

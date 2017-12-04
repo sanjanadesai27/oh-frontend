@@ -52,13 +52,13 @@ class App extends Component {
         this.setState({ 
           loginError: "User not found"
         });
-         history.push('/login');
+         history.push('/');
       }
     }).catch((err) => { 
       this.setState({
         loginError: "User not found"
       });
-         history.push('/login');
+         history.push('/');
     })
   }
 
