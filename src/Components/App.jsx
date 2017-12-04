@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { 
-  HashRouter as Router,
+  BrowserRouter as Router,
   Route, 
   Switch,
   Redirect
@@ -36,13 +36,16 @@ class App extends Component {
     .then(res => res.json())
     .then((res) => { 
       let token = res.token;
+      console.log(res);
       if(token) { 
         window.localStorage.setItem("userToken", JSON.stringify(res.token));
         this.setState({
           isLoggedIn: true
-          // userId: token.id
+          // userId: res.user.id
          });
-        //  history.push('/feed')
+         console.log(this.state);
+         this.props.history.push('/feed');
+
       } 
       else { 
         this.setState({ 
