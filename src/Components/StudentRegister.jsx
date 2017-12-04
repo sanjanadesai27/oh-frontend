@@ -1,24 +1,22 @@
 import React, { Component } from 'react';
-import { Form, Segment, Button, Message, Grid, Header, Radio, Select } from 'semantic-ui-react';
+import { Segment, Grid, Header, Form, Message, Select } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-const options = [ 
-  {key: 'U0', text: 'U0', value: 'U0'},
-  { key: 'U1', text: 'U1', value: 'U1' },
-  { key: 'U2', text: 'U2', value: 'U2' },
-  { key: 'U3', text: 'U3', value: 'U3' },
-  { key: 'U4', text: 'U4', value: 'U4' }
+const options = [
+  { key: 'U0', text: 'U0', value: 'U0'},
+  { key: 'U1', text: 'U1', value: 'U1'},
+  { key: 'U2', text: 'U2', value: 'U2'},
+  { key: 'U3', text: 'U3', value: 'U3'},
+  { key: 'U4', text: 'U4', value: 'U4'}
 ];
 
-class StudentRegister extends Component {
-  state = {};
-  handleChange = (e, { value }) => this.setState({ value });
 
+class StudentRegister extends Component {
   render() {
-    const { value } = this.state;
-     return (
+       return (
       <div className='login-form'>
-        <style>{`
+        <style>
+          {`
         body > div,
         body > div > div,
         body > div > div > div.login-form {
@@ -32,20 +30,33 @@ class StudentRegister extends Component {
         >
           <Grid.Column style={{ maxWidth: 800 }}>
             <Header as='h2' color='blue' textAlign='center'>
-              {' '}Create your account
-            </Header>
-            <Form size='large'>
-              <Form.Group widths='equal'>
-                <Form.Input label='First name' placeholder='First name' />
-                <Form.Input label='Last name' placeholder='Last name' />
-                <Form.Select options={options} placeholder='Year'/> 
-              </Form.Group>
+              {' '}Create an Account
+          </Header>
+            <Form size='large' onSubmit={this.props.submitHandler}>
+                <Form.Group widths="equal"> 
+                <Form.Input
+                  fluid
+                  iconPosition='left'
+                  placeholder='First Name'
+                  className="firstname"
+                  name="firstname"
+                />
+                <Form.Input
+                  fluid
+                  iconPosition='left'
+                  placeholder='Last Name'
+                  className="lastname"
+                  name="lastname"
+                />
+                <Form.Field control={Select}  options={options} placeholder="Year"/> 
+                </Form.Group>
                 <Form.Input
                   fluid
                   icon='user'
                   iconPosition='left'
                   placeholder='E-mail address'
                   className="email"
+                  name="email"
                 />
                 <Form.Input
                   fluid
@@ -54,12 +65,8 @@ class StudentRegister extends Component {
                   placeholder='Password'
                   type='password'
                   className="password"
+                  name="password"
                 />
-               <Form.Group inline>
-                 <label>Student or Tutor</label>
-                 <Form.Field control={Radio} label='Student' value='student' checked={value === 'student'} onChange={this.handleChange} />
-                 <Form.Field control={Radio} label='Tutor' value='tutor' checked={value === 'tutor'} onChange={this.handleChange} />
-               </Form.Group>
                 <Form.Button color='blue' fluid size='large'>Register</Form.Button>
             </Form>
             <Message>
@@ -67,7 +74,32 @@ class StudentRegister extends Component {
             </Message>
           </Grid.Column>
         </Grid>
-    </div> 
+      {/* <Segment>
+      <div>
+      <h2>Register!</h2>  
+      <form onSubmit={this.props.submitHandler} className='registration' style={styles}>
+        <label>Firstname</label>
+        <input type="text" className="firstname" placeholder='firstname'/>
+        <label>Lastname</label>
+        <input type='text' className='lastname' placeholder='lastname'/> 
+        <br/> 
+        <label>Email</label>
+        <input type='email' className='email' placeholder='email'/>
+        <label>Password</label>
+        <input type='password' className='password' placeholder='password' />
+        <br/> 
+         <select name="year">
+           <option value="U0">U0</option>
+           <option value="U1">U1</option>
+           <option value="U2">U2</option>
+           <option value="U3">U3</option>
+           <option value="U4">U4</option>
+         </select>
+         <button type="submit" className="studentRegButton">Submit</button>
+      </form> 
+      </div>
+      </Segment> */}
+       </div>
     );
   }
 }

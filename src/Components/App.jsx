@@ -4,8 +4,6 @@ import {
   Router,
   Route, 
   Switch,
-  withRouter,
-  Redirect
 } from 'react-router-dom';
 import Landing from './Landing.jsx';
 import Login from './LoginForm.jsx';
@@ -53,22 +51,62 @@ class App extends Component {
         this.setState({ 
           loginError: "User not found"
         });
-         history.push('/feed');
+         history.push('/login');
       }
     }).catch((err) => { 
       this.setState({
         loginError: "User not found"
       });
-         history.push('/feed');
+         history.push('/login');
     })
+  }
+
+  registerHandler = (e) => { 
+    e.preventDefault();
+    let firstname = document.querySelector('div.field.firstname input[name="firstname"]').value;
+    let lastname = document.querySelector('div.field.lastname input[name="lastname"]').value;
+    let email = document.querySelector('div.field.email input[name="email"]').value;
+    let password = document.querySelector('div.field.password input[name="password"]').value;
+    let year = document.querySelector('select[name="year"]').value;
+    let formData = { firstname, lastname, email, password, year }; 
+    fetch('/createStudent',{ 
+      headers: { 
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }, 
+      method: 'POST',
+      body: JSON.stringify(formData),
+    })
+    .then(res => res.json())
+    .then(res => { 
+      let token = res.token;
+      if (token) {
+        window.localStorage.setItem("userToken", JSON.stringify(res.token));
+        window.localStorage.setItem("id", res.user.id);
+        this.setState({
+          isLoggedIn: true,
+          userId: res.user.id
+        });
+        history.push('/feed');
+      } else { 
+        this.setState({ 
+          loginError:"User not created"
+        });
+      }
+    })
+    .catch(err => { 
+      this.setState({ 
+        loginError:"User not created"
+      });
+    }); 
   }
 
   componentDidMount() { 
     if(!this.state.isLoggedIn) { 
       this.setState({
         loginError: "User not found"
-      });
-      <Redirect to="/login"/> 
+      }); 
+      history.push('/login');
     }
   }
 
@@ -80,17 +118,20 @@ class App extends Component {
     const LandingPage = (props) => { 
       return (<Landing isLoggedIn={this.state.isLoggedIn} />);
     }
+    const StudentRegistrationPage = (props) => { 
+      return ( <StudentRegister submitHandler={this.registerHandler} /> )
+    }
 
     return(
       <Router history={history}> 
         <Switch>
           <Route exact path="/" render={LandingPage} />
           <Route path="/login" render={LoginPage} />
-          <Route path="/register" component={StudentRegister} />
+          <Route path="/studentregister" component={StudentRegistrationPage} />
+          {/* <Route path="/tutorregister" component={TutorRegistrationPage}/> */}
            <Route path="/feed" component={Feed}/> 
         {/* <Route path="/question/:id" component={Question}/>  */}
           <Route path="/user" component={User}/>
-
         </Switch> 
       </Router> 
     );

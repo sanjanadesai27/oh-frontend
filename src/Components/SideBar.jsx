@@ -1,13 +1,20 @@
 import React, { Component } from 'react'
 import { Sidebar, Divider,Segment, Button, Menu, Image, Icon, Header } from 'semantic-ui-react'
+import { Link } from 'react-router-dom';
 import Title from './AppTitle';
 
 class SidebarLeftSlideAlong extends Component {
-  state = { visible: false }
+  state = { 
+    visible: false,
+    id: window.localStorage.getItem('id')
+  }
+
 
   toggleVisibility = () => this.setState({ visible: !this.state.visible })
 
   render() {
+    let homeLink = `/feed/${this.state.id}`;
+    let profileLink = `/user/${this.state.id}`;
     const { visible } = this.state
     return (
       <div className="NavWrapper">
@@ -19,11 +26,11 @@ class SidebarLeftSlideAlong extends Component {
           <Sidebar as={Menu} animation='slide along' width='thin' visible={visible} icon='labeled' vertical inverted>
             <Menu.Item name='home'>
               <Icon name='home' />
-              Home
+              <Link to={homeLink}>Home</Link>
             </Menu.Item>
             <Menu.Item name='user'>
               <Icon name='user' />
-              Your Profile
+              <Link to={profileLink}>Profile</Link>
             </Menu.Item>
             <Menu.Item name='sign out'>
               <Icon name='sign out' />
