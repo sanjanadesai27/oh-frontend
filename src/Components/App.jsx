@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { 
-  HashRouter as Router,
+  BrowserRouter as Router,
   Route, 
   Switch,
   Redirect
 } from 'react-router-dom';
+import { withRouter } from 'react-router'
 import Landing from './Landing.jsx';
 import Login from './LoginForm.jsx';
 import StudentRegister from './StudentRegister.jsx';
 import UserProfile from './UserProfile.jsx';
 import Feed from '../Containers/FeedContainer';
 import User from '../Containers/UserProfileContainer';
-import { BrowserRouter } from 'react-router'
 
 class App extends Component { 
   
@@ -30,19 +30,27 @@ class App extends Component {
     let password = document.querySelector('div.field.password input[name="password"]').value; 
     let formData = { email, password };
     fetch('/login',{
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
       method: 'POST',
-      body: formData
+      body: JSON.stringify(formData)
     })
     .then(res => res.json())
     .then((res) => { 
+      console.log(res.user);
       let token = res.token;
       if(token) { 
         window.localStorage.setItem("userToken", JSON.stringify(res.token));
         this.setState({
-          isLoggedIn: true
-          // userId: token.id
+          isLoggedIn: true,
+          userId: res.user.id
          });
-        //  history.push('/feed')
+
+         var transitionTo = Router.transitionTo;
+         transitionTo('/feed');
+         console.log(res.use.id);
       } 
       else { 
         this.setState({ 
@@ -84,7 +92,8 @@ class App extends Component {
           <Route path="/register" component={StudentRegister} />
            <Route path="/feed" component={Feed}/> 
         {/* <Route path="/question/:id" component={Question}/>  */}
-        <Route path="/user" component={User}/> 
+          <Route path="/user" component={User}/>
+
         </Switch> 
       </Router> 
     );
