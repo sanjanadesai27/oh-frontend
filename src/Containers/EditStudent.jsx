@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import EditProfileContainere from '../Components/EditProfile.jsx';
+import EditStudentContainer from '../Components/EditStudent.jsx';
 
-class EditProfileContainer extends Component {
+class EditStudentContainer extends Component {
 
   constructor () {
     super();
@@ -21,10 +21,10 @@ class EditProfileContainer extends Component {
   render() {
     let userInfo = this.state.userInformation
      return([
-      <EditProfile userInformation = {userInfo} /> 
+      <EditStudent userInformation = {userInfo} /> 
      ]);
   }
 
 }
 
-export default EditProfileContainer;
+export default EditStudentContainer;

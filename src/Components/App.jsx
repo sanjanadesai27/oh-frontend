@@ -7,10 +7,13 @@ import {
 } from 'react-router-dom';
 import Landing from './Landing.jsx';
 import Login from './LoginForm.jsx';
-import Register from './Register.jsx';
-import UserProfile from './UserProfile.jsx';
+import StudentRegister from './StudentRegister.jsx';
 import Feed from '../Containers/FeedContainer';
-import EditProfile from './EditProfile.jsx';
+import StudentProfile from './StudentProfile.jsx';
+// import TutorProfile from './TutorProfile.jsx';
+// import EditStudent from './EditStudent.jsx';
+// import EditTutor from './EditTutor.jsx';
+import { BrowserRouter } from 'react-router'
 
 class App extends Component { 
   
@@ -23,28 +26,27 @@ class App extends Component {
 
     }
   }
-
   loginHandler = (e) => { 
     e.preventDefault();
-    let email = document.querySelector(".email").value; 
-    let password = document.querySelector(".password").value; 
-    let formData = new FormData();
-    formData.append("email", email);
-    formData.append("password", password);
+    let email = document.querySelector('div.field.email input[name="email"]').value; 
+    let password = document.querySelector('div.field.password input[name="password"]').value; 
+    let formData = { email, password };
     fetch('/login',{
       method: 'POST',
-      body: formData,
+      body: formData
     })
+    .then(res => res.json())
     .then((res) => { 
-      res = JSON.parse(res)
-      if(res.token) { 
-        window.localStorage.setItem("userToken", JSON.stringify(res.token)); //storing token in local storage
+      let token = res.token;
+      if(token) { 
+        window.localStorage.setItem("userToken", JSON.stringify(res.token));
         this.setState({
           isLoggedIn: true
           // userId: token.id
-        });
-        <Redirect to='/feed'/>
-      } else { 
+         });
+        //  history.push('/feed')
+      } 
+      else { 
         this.setState({ 
           loginError: "User not found"
         });
@@ -81,11 +83,13 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={LandingPage} />
           <Route path="/login" render={LoginPage} />
-          <Route path="/register" component={Register} />
+          <Route path="/register" component={StudentRegister} />
            <Route path="/feed" component={Feed}/> 
         {/* <Route path="/question/:id" component={Question}/>  */}
-        <Route path="/user" component={UserProfile}/>
-        <Route path="/edit" component={EditProfile}/> 
+        <Route path="/student" component={StudentProfile}/>
+        {/* <Route path="/tutor" component={TutorProfile}/>
+        <Route path="/student/edit" component={EditStudent}/>
+        <Route path="/tutor/edit" component={EditTutor}/>  */}
         </Switch> 
       </Router> 
     );

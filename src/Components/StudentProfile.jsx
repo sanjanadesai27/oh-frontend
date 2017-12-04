@@ -51,7 +51,7 @@ class MainPanel extends Component {
           </Header.Subheader>
         </Header>
         </p>
-        <script src="EditField.js"></script>
+        <script src="EditStudent.js"></script>
             <Avatar 
                image={info.photo} 
                width={100}
@@ -98,7 +98,7 @@ class MainPanel extends Component {
   }
 }
 
-class UserProfile extends Component {
+class StudentProfile extends Component {
   render() {
     return (
       <div id="user-profile">
@@ -108,6 +108,6 @@ class UserProfile extends Component {
   }
 }
 
-ReactDOM.render(<UserProfile />, document.getElementById('root'))
+ReactDOM.render(<StudentProfile />, document.getElementById('root'))
 
-export default UserProfile; 
+export default StudentProfile; 

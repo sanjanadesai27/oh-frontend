@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import SideBar from '../Components/SideBar'
-
 import FeedTitle from '../Components/Feed/FeedTitle';
 import Question from '../Components/Feed/Question'
-import { lchmod } from 'fs';
 
 class FeedContainer extends Component { 
   constructor(){
@@ -42,7 +40,8 @@ class FeedContainer extends Component {
       }
     }
     questions = questions.map(q => <Question key={q.id_questions} ques={q.questionText} title={ checkId(q.courseIdCourses) } />);
-     return([
+     
+    return([
      <SideBar title={<FeedTitle/>} data={questions}  />,
      ]);
 

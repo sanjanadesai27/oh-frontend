@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import UserProfile from '../Components/UserProfile.jsx';
+import StudentProfile from '../Components/StudentProfile.jsx';
 
-class UserProfileContainer extends Component {
+class StudentProfileContainer extends Component {
 
   constructor () {
     super();
@@ -21,10 +21,10 @@ class UserProfileContainer extends Component {
   render() {
     let userInfo = this.state.userInformation
      return([
-      <UserProfile userInformation = {userInfo} /> 
+      <StudentProfile userInformation = {userInfo} /> 
      ]);
   }
 
 }
 
-export default UserProfileContainer;
+export default StudentProfileContainer;

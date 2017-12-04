@@ -1,4 +1,7 @@
-
+.column
+{
+    min-height:40%;
+}
 .feedBtn
 {
     width:50px;

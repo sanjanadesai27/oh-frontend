@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Input, Button, Modal, Divider, Form, Label } from 'semantic-ui-react'
 
-class EditProfile extends Component {
+class EditStudent extends Component {
     state = { open: false }
         closeConfigShow = (closeOnEscape, closeOnRootNodeClick) => () => {
         this.setState({ closeOnEscape, closeOnRootNodeClick, open: true })
@@ -79,4 +79,4 @@ class EditProfile extends Component {
       );
     }
   }
-export default EditProfile;
+export default EditStudent;
