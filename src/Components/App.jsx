@@ -11,6 +11,7 @@ import StudentRegister from './StudentRegister.jsx';
 import UserProfile from './UserProfile.jsx';
 import Feed from '../Containers/FeedContainer';
 import User from '../Containers/UserProfileContainer';
+import Thread from '../Containers/ThreadContainer'
 
 class App extends Component { 
   
@@ -132,6 +133,7 @@ class App extends Component {
            <Route path="/feed" component={Feed}/> 
         {/* <Route path="/question/:id" component={Question}/>  */}
           <Route path="/user" component={User}/>
+          <Route path="/thread" component={Thread}/>
         </Switch> 
       </Router> 
     );
