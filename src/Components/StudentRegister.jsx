@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Segment, Button, Message, Grid, Header } from 'semantic-ui-react';
+import { Form, Segment, Button, Message, Grid, Header, Radio, Select } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 const options = [ 
@@ -15,7 +15,7 @@ class StudentRegister extends Component {
   handleChange = (e, { value }) => this.setState({ value });
 
   render() {
-
+    const { value } = this.state;
      return (
       <div className='login-form'>
         <style>{`
