@@ -39,7 +39,7 @@ class App extends Component {
     })
     .then(res => res.json())
     .then((res) => { 
-      console.log(res.user);
+
       let token = res.token;
       console.log(res);
       if(token) { 
@@ -51,6 +51,7 @@ class App extends Component {
 
          var transitionTo = Router.transitionTo;
          transitionTo('/feed');
+
          console.log(res.use.id);
       } 
       else { 
@@ -181,7 +182,7 @@ class App extends Component {
     }
 
     return(
-      <Router> 
+      <Router history={history}> 
         <Switch>
           <Route exact path="/" render={LandingPage} />
           <Route path="/login" render={LoginPage} />
