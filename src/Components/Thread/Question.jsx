@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import QuestionTitle from './QuestionTitle.jsx';
+
 class Question extends Component
 {
     render()
@@ -29,9 +30,8 @@ class Question extends Component
                     Assigned TA(s) for this course: {test.TAs[0]}, {test.TAs[1]}
                 </small>
                 <br/>
-                <p className="qbody">{test.body}</p>
                 <br/>
-                <p className="qbody">{question}</p>
+                <p className="qbody">{test.body}</p>
                 <br/>
                 <hr/>
                 <br/>

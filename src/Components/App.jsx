@@ -11,7 +11,7 @@ import StudentRegister from './StudentRegister.jsx';
 import UserProfile from './UserProfile.jsx';
 import Feed from '../Containers/FeedContainer';
 import User from '../Containers/UserProfileContainer';
-import Thread from '../Containers/ThreadContainer'
+import Thread from '../Containers/ThreadContainer';
 
 class App extends Component { 
   
