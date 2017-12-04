@@ -48,11 +48,9 @@ class App extends Component {
           isLoggedIn: true,
           userId: res.user.id
          });
-
+    
          var transitionTo = Router.transitionTo;
          transitionTo('/feed');
-
-         console.log(res.use.id);
       } 
       else { 
         this.setState({ 
