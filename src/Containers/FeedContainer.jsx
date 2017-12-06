@@ -44,7 +44,7 @@ class FeedContainer extends Component {
         }
       }
     }
-    questions = questions.map(q => <Question key={q.id_questions} ques={q.questionText} title={ checkId(q.courseIdCourses) } />);
+    questions = questions.map(q => <Question key={q.id_questions} id={q.id_questions} ques={q.questionText} title={ checkId(q.courseIdCourses) } />);
     questions.push(<AddQuestion />)
     return([
      <SideBar title={<FeedTitle/>} data={questions}/>,

@@ -1,30 +1,29 @@
 import React, { Component } from 'react';
-import UserProfile from '../Components/UserProfile.jsx';
+import StudentProfile from '../Components/Student/StudentProfile';
 import SideBar from '../Components/SideBar';
-import UserTitle from '../Components/UserTitle';
+import UserTitle from '../Components/Student/StudentTitle';
 
 class UserProfileContainer extends Component {
 
   constructor () {
     super();
     this.state = { 
-      userInformation: {} 
+      userInfo: []
     }
   }
 
   componentDidMount() {
-    fetch('/student/1')
+    fetch(`/student/${this.props.match.params.id}`)
     .then( results => {return results.json();})
     .then (data => {
-      this.setState(data)      
+      this.setState({userInfo: data[0]})      
     })
   }
 
   render() {
 
-    let userInfo = this.state.userInformation
-    let d = [<UserProfile userInformation = {userInfo} />];
-
+    let userInfo = this.state.userInfo;
+    let d= [<StudentProfile info="userInfo"/>];
      return(
         <SideBar title={<UserTitle/>} data={d}/>
      )

@@ -1,38 +1,37 @@
 import React, {Component}   from 'react';
-// import Question             from '../Components/Thread/Question.jsx';
-import Answer               from '../Components/Answer';
+import Answer               from '../Components/Thread/Answer';
+import AddComment from '../Components/Thread/AddComment'
 import Sidebar              from '../Components/SideBar';
-import QuestionTitle        from '../Components/Thread/QuestionTitle.jsx';
-import { Segment } from 'semantic-ui-react';
+import ThreadTitle        from '../Components/Thread/ThreadTitle.jsx';
 
 class ThreadContainer extends Component
 {
     constructor()
     {
         super()
-        this.state = {question: "", answers: [], error: ""};
+        this.state = {question: [], answers: [], error: ""};
     }
-
     componentDidMount()
     {
-        fetch('/thread/3')
+        fetch(`/thread/${this.props.match.params.quesId}`)
         .catch (error => this.setState({error: error.message}))
         .then (res => res.json())
         .then (info => this.setState(
             {
+                question: info[0].question.questionText,
                 answers:info
             }
         ))
     }
 
     render()
-
-
     {
-        let answers = this.state.answers
-        answers = answers.map(a => <Answer key={a.id_comments} ques={a.commentText} title={"Answer"}/>);
+        let answers = this.state.answers;
+        let question = this.state.question;
+        answers = answers.map(a => <Answer key={a.id_comments} ques={a.commentText}/>);
+        answers.push(<AddComment />)
         return([
-                <Sidebar title={<Segment><div className="answerTitle">HOW DO I SET UP SLIM???</div></Segment>} data={answers} />,
+                <Sidebar title={<ThreadTitle title={question}/>} data={answers} />,
         ]);
     }
 }

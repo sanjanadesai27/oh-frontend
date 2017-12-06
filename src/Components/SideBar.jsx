@@ -14,7 +14,8 @@ class SidebarLeftSlideAlong extends Component {
 
   render() {
     let homeLink = `/feed/${this.state.id}`;
-    let profileLink = `/user/${this.state.id}`;
+    let studentLink = `/student/${this.state.id}`;
+    let tutorLink = `/tutor/${this.state.id}`;
     const { visible } = this.state
     return (
       <div className="NavWrapper">
@@ -30,7 +31,7 @@ class SidebarLeftSlideAlong extends Component {
             </Menu.Item>
             <Menu.Item name='user'>
               <Icon name='user' />
-              <Link to={profileLink}>Profile</Link>
+              <Link to={studentLink}>Profile</Link>
             </Menu.Item>
             <Menu.Item name='sign out'>
               <Icon name='sign out' />

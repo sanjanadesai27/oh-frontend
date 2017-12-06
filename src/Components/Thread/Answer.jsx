@@ -1,26 +1,25 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import {Icon} from 'semantic-ui-react' ;
 
-class Answer extends Component
-{
-    render()
-    {
-        var test = 
-        {
-            day: "02",
-            month: "January",
-            year: "2018",
-            by: "Bob",
-            body: "An array is a data structure."
-        }
+class Answer extends Component { 
+  render() { 
+     return(
+       <div className="Questions">
 
-        return(
-            <div className="answer">
-                <small>on {test.month} {test.day}, {test.year} by <a href="#">{test.by}</a></small>
+          <div className="courseWrapper" >
+              <div className="courseTitle">
+                {this.props.title}
+              </div>
+              <div className="quesDescription">
+                {this.props.ques}
                 <br/>
-                <p>{test.body}</p>
-            </div>
-        );
-    }
-}
+                <span> Submitted by : user | Date:</span>
+              </div>
+          </div>
 
+        </div>
+      );
+  }
+}
 export default Answer;
