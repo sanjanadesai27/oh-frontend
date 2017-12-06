@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {Icon} from 'semantic-ui-react' ;
 
-class Question extends Component { 
+class Answer extends Component { 
   render() { 
      return(
        <div className="Questions">
@@ -12,10 +12,12 @@ class Question extends Component {
           
           <div className="courseWrapper" >
               <div className="courseTitle">
-                <Link to="/thread">{this.props.title}</Link>
+                {this.props.title}
               </div>
               <div className="quesDescription">
                 {this.props.ques}
+                <br/>
+                <span> Submitted by : user | Date:</span>
               </div>
           </div>
 
@@ -23,4 +25,4 @@ class Question extends Component {
       );
   }
 }
-export default Question;
+export default Answer;

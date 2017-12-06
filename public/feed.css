@@ -138,3 +138,20 @@ input {
     border-color: grey;
 }
 
+.answerTitle{
+    margin-top:15px;
+    text-align: center;
+    color: white;
+    font-size:3em;
+    font-family:'Raleway', sans-serif;
+    
+}
+.ui.segment {
+    background-color: rgb(137, 194, 243);
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 5px;
+    border: 0;
+    position: relative;
+    /* height: 100%; */
+}
