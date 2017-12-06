@@ -68,7 +68,7 @@ class App extends Component {
     let lastname = document.querySelector('div.field.lastname input[name="lastname"]').value;
     let email = document.querySelector('div.field.email input[name="email"]').value;
     let password = document.querySelector('div.field.password input[name="password"]').value;
-    let year = document.querySelector('select[name="year"]').value;
+    let year = document.querySelector('select').value;
     let formData = { firstname, lastname, email, password, year }; 
     fetch('/createStudent',{ 
       headers: { 
