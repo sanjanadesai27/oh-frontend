@@ -1,24 +1,15 @@
 import React, { Component } from 'react';
-import { Segment, Grid, Header, Form, Message, Select } from 'semantic-ui-react';
+import { Grid, Header, Form, Message, Select } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import AppTitle from './AppTitle'
-
-const options = [
-  { key: 'U0', text: 'U0', value: 'U0'},
-  { key: 'U1', text: 'U1', value: 'U1'},
-  { key: 'U2', text: 'U2', value: 'U2'},
-  { key: 'U3', text: 'U3', value: 'U3'},
-  { key: 'U4', text: 'U4', value: 'U4'}
-];
-
 
 class StudentRegister extends Component {
   render() {
        return (
-         <div>
+    <div>
       <AppTitle />
       <div className='login-form'>
-        <style>
+      <style>
           {`
         body > div,
         body > div > div,
@@ -33,7 +24,7 @@ class StudentRegister extends Component {
         >
           <Grid.Column style={{ maxWidth: 800 }}>
             <Header as='h2' color='blue' textAlign='center'>
-              {' '}Create an Account
+              {' '}Create a Student Account
           </Header>
             <Form size='large' onSubmit={this.props.submitHandler}>
                 <Form.Group widths="equal"> 
@@ -51,7 +42,13 @@ class StudentRegister extends Component {
                   className="lastname"
                   name="lastname"
                 />
-                <Form.Field control={Select}  options={options} placeholder="Year"/> 
+                <select className="ui dropdown">
+                  <option value="U0">U0</option>
+                  <option value="U1">U1</option>
+                  <option value="U2">U2</option>
+                  <option value="U3">U3</option>
+                  <option value="U4">U4</option>
+                </select>
                 </Form.Group>
                 <Form.Input
                   fluid
@@ -78,31 +75,6 @@ class StudentRegister extends Component {
           </Grid.Column>
         </Grid>
         </div>
-      {/* <Segment>
-      <div>
-      <h2>Register!</h2>  
-      <form onSubmit={this.props.submitHandler} className='registration' style={styles}>
-        <label>Firstname</label>
-        <input type="text" className="firstname" placeholder='firstname'/>
-        <label>Lastname</label>
-        <input type='text' className='lastname' placeholder='lastname'/> 
-        <br/> 
-        <label>Email</label>
-        <input type='email' className='email' placeholder='email'/>
-        <label>Password</label>
-        <input type='password' className='password' placeholder='password' />
-        <br/> 
-         <select name="year">
-           <option value="U0">U0</option>
-           <option value="U1">U1</option>
-           <option value="U2">U2</option>
-           <option value="U3">U3</option>
-           <option value="U4">U4</option>
-         </select>
-         <button type="submit" className="studentRegButton">Submit</button>
-      </form> 
-      </div>
-      </Segment> */}
        </div>
     );
   }
