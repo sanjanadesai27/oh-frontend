@@ -42,6 +42,13 @@ class StudentRegister extends Component {
                   className="lastname"
                   name="lastname"
                 />
+                <Form.Input
+                  fluid
+                  iconPosition='left'
+                  placeholder='username'
+                  className="username"
+                  name="username"
+                />
                 <select className="ui dropdown">
                   <option value="U0">U0</option>
                   <option value="U1">U1</option>
