@@ -9,15 +9,30 @@ class ThreadContainer extends Component
     constructor()
     {
         super()
-        this.state = {question: [], answers: [], error: ""};
+        this.state = {
+            isLoggedIn:false,
+            question: [], 
+            answers: [], 
+            error: ""};
     }
-    componentDidMount()
+    componentWillMount()
     {
-        fetch(`/thread/${this.props.match.params.quesId}`)
+        let token = JSON.parse(window.localStorage.getItem("userToken"));
+        let id = JSON.parse(window.localStorage.getItem("id"));
+        let header = new Headers({
+            "Content-Type":"application/json",
+            "Authorization":token
+          });
+        fetch(`/thread/${this.props.match.params.quesId}`,{
+            method: "GET",
+            headers:header,
+            mode: 'cors',
+            cache: 'default'
+          })
         .catch (error => this.setState({error: error.message}))
         .then (res => res.json())
         .then (info => this.setState(
-            {
+            {   isLoggedIn:true,
                 question: info[0].question.questionText,
                 answers:info
             }

@@ -46,7 +46,7 @@ class App extends Component {
           isLoggedIn: true,
           userId: res.user.id
          });
-           history.push('/feed');
+           history.push(`/feed/${this.state.userId}`);
       } 
       else { 
         this.setState({ 
@@ -90,7 +90,7 @@ class App extends Component {
           isLoggedIn: true,
           userId: res.user.id
         });
-        history.push('/feed');
+        history.push(`/feed/${this.state.userId}`);
         
       } else { 
         this.setState({ 
@@ -134,7 +134,7 @@ class App extends Component {
           <Route path="/login" render={LoginPage} />
           <Route path="/studentregister" component={StudentRegistrationPage} />
           {/* <Route path="/tutorregister" component={TutorRegistrationPage}/> */}
-           <Route path="/feed" component={Feed}/> 
+           <Route path="/feed/:id" component={Feed}/> 
 
           <Route path="/student/:id" component={Student}/>
           {/* <Route path="/tutor/:id" component={User}/> */}

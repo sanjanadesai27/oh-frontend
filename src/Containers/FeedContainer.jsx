@@ -9,20 +9,32 @@ class FeedContainer extends Component {
   constructor(){
     super()
     this.state = {
+      isLoggedIn:false,
       id:[],
       student:[],
       questions:[],
       courses:[],
       error:""};
   }
-  componentDidMount(){
+  componentWillMount(){
     let token = JSON.parse(window.localStorage.getItem("userToken"));
     let id = JSON.parse(window.localStorage.getItem("id"));
     this.setState({id:id})
-    fetch(`/feed/${id}`,{headers : {"Authorization": token}})
+    let header = new Headers({
+      "Content-Type":"application/json",
+      "Authorization":token
+    });
+    fetch(`/feed/${id}`,{
+      method: "GET",
+      headers:header,
+      mode: 'cors',
+      cache: 'default'
+    })
     .catch(error => this.setState({error:error.message}))
     .then(res => res.json())
-    .then(info => this.setState({
+    .then(info => 
+      this.setState({
+      isLoggedIn:true,
       student:info[0],
       questions:((info[0]).courses.map(x => x.questions)).reduce((a,b)=>a.concat(b)),
       courses:(info[0].courses).map(x => [x.id_courses,""+x.department+" "+ x.number])
@@ -31,9 +43,9 @@ class FeedContainer extends Component {
   render() { 
     //get student record
     let courses= this.state.courses;
-    console.log(courses);
     let student = this.state.student;
     let questions = this.state.questions;
+    
     let checkId = function(x){
       for(var i=0; i<courses.length; i++){
         if (courses[i][0]===x)
@@ -43,9 +55,9 @@ class FeedContainer extends Component {
       }
     }
     questions = questions.map(q => <Question key={q.id_questions} id={q.id_questions} ques={q.questionText} title={ checkId(q.courseIdCourses) } />);
-    questions.push(<AddQuestion />)
+    questions.push(<AddQuestion key="questionButton" />)
     return([
-     <SideBar title={<FeedTitle/>} data={questions}/>,
+     <SideBar title={<FeedTitle key="title"/>} data={questions}/>,
      ]);
 
   }

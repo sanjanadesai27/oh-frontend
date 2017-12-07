@@ -12,8 +12,20 @@ class TutorContainer extends Component {
     }
   }
 
-  componentDidMount() {
-    fetch(`/tutor/${this.props.match.params.id}`)
+  componentWillMount() {
+    let token = JSON.parse(window.localStorage.getItem("userToken"));
+    let id = JSON.parse(window.localStorage.getItem("id"));
+    let header = new Headers({
+        "Content-Type":"application/json",
+        "Authorization":token
+      });
+    fetch(`/tutor/${this.props.match.params.id}`,
+    {
+      method: "GET",
+      headers:header,
+      mode: 'cors',
+      cache: 'default'
+    })
     .then( results => {return results.json();})
     .then (data => {
       this.setState({ userInfo: data[0] })      
