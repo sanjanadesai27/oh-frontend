@@ -19,9 +19,7 @@ class FeedContainer extends Component {
     let token = JSON.parse(window.localStorage.getItem("userToken"));
     let id = JSON.parse(window.localStorage.getItem("id"));
     this.setState({id:id})
-    let headers = new Headers();
-    headers.append("Authorization", token);
-    fetch(`/feed/${id}`,headers)
+    fetch(`/feed/${id}`,{headers : {"Authorization": token}})
     .catch(error => this.setState({error:error.message}))
     .then(res => res.json())
     .then(info => this.setState({

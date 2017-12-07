@@ -1,8 +1,23 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Button, Container, Header, Icon, Segment } from 'semantic-ui-react';
+import history from './history.js';
 
 class Home extends Component { 
+  constructor(props) { 
+    super(props);
+    this.state = { 
+      isLoggedIn : false
+    }
+  }
+  componentWillMount() { 
+    if(window.localStorage.getItem("userToken")) { 
+      this.setState({
+        isLoggedIn : true
+      });
+      history.push(`/feed/${JSON.parse(window.localStorage.getItem('id'))}`);
+    } 
+  }
 
   handleLogin = () => { 
     this.props.history.push('/login');
