@@ -64,12 +64,14 @@ class App extends Component {
 
   registerHandler = (e) => { 
     e.preventDefault();
-    let firstname = document.querySelector('div.field.firstname input[name="firstname"]').value;
-    let lastname = document.querySelector('div.field.lastname input[name="lastname"]').value;
+    let name = document.querySelector('div.field.firstname input[name="firstname"]').value;
+    let surname = document.querySelector('div.field.lastname input[name="lastname"]').value;
+    let username = document.querySelector('div.field.username input[name="username"').value;
     let email = document.querySelector('div.field.email input[name="email"]').value;
     let password = document.querySelector('div.field.password input[name="password"]').value;
     let year = document.querySelector('select').value;
-    let formData = { firstname, lastname, email, password, year }; 
+    let formData = { name, surname, username, email, password, year }; 
+    console.log(formData);
     fetch('/createStudent',{ 
       headers: { 
         'Accept': 'application/json',
@@ -93,7 +95,7 @@ class App extends Component {
       } else { 
         this.setState({ 
           loginError:"User not created"
-        })
+        });
         history.push('/');
       }
     })
