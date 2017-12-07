@@ -89,10 +89,12 @@ class App extends Component {
           userId: res.user.id
         });
         history.push('/feed');
+        
       } else { 
         this.setState({ 
           loginError:"User not created"
-        });
+        })
+        history.push('/');
       }
     })
     .catch(err => { 
@@ -107,7 +109,7 @@ class App extends Component {
       this.setState({
         loginError: "User not found"
       }); 
-      history.push('/login');
+      history.push('/');
     }
   }
 
