@@ -11,29 +11,31 @@ class Home extends Component {
     }
   }
   componentWillMount() { 
-    let token = JSON.parse(window.localStorage.getItem("userToken"));
-    console.log(token);
-    let id = JSON.parse(window.localStorage.getItem("id"));
-    let header = new Headers({
-      "Content-Type":"application/json",
-      "Authorization":token
-    });
-    fetch('/authorize',{
-      method: "GET",
-      headers:header,
-      mode: 'cors',
-      cache: 'default'
-    }).then(c=> c.json())
-    .then(c =>{
-      console.log(c);
-        if (c.success){
-        this.setState({
-          isLoggedIn : true
-        });
-        history.push(`/feed/${JSON.parse(window.localStorage.getItem('id'))}`);
-      }
+    if(window.localStorage.getItem("userToken")){
+      let token = JSON.parse(window.localStorage.getItem("userToken"));;
+      let id = JSON.parse(window.localStorage.getItem("id"));
+      let header = new Headers({
+        "Content-Type":"application/json",
+        "Authorization":token
+      });
+      fetch('/authorize',{
+        method: "GET",
+        headers:header,
+        mode: 'cors',
+        cache: 'default'
+      })
+      .then(c=> c.json())
+      .then(c =>{
+          if (c.success)
+          {
+            this.setState({isLoggedIn : true});
+            history.push(`/feed/${JSON.parse(window.localStorage.getItem('id'))}`);
+          }
+      });
+  }
+    else {
+      this.handleLogin();
     }
-    );
   }
 
   handleLogin = () => { 

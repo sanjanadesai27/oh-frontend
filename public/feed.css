@@ -146,6 +146,10 @@ input {
     font-family:'Raleway', sans-serif;
     
 }
+.content
+{
+    background-color:white;
+}
 .ui.segment {
     background-color: rgb(137, 194, 243);
     margin-top: 0;

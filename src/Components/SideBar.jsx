@@ -11,7 +11,7 @@ class SidebarLeftSlideAlong extends Component {
 
 
   toggleVisibility = () => this.setState({ visible: !this.state.visible })
-  handleSignOut=() => window.localStorage.clear();
+  handleSignOut=() => window.localStorage.setItem("userToken",null);
 
   render() {
     let homeLink = `/feed/${this.state.id}`;
@@ -36,8 +36,7 @@ class SidebarLeftSlideAlong extends Component {
             </Menu.Item>
             <Menu.Item name='sign out'>
               <Icon name='sign out' />
-              {this.handleSignOut}
-              <Link to='/login'> Sign out</Link>
+              <Link to='/login' onClick={this.handleSignOut}> Sign out </Link>
             </Menu.Item>
           </Sidebar>
           <Sidebar.Pusher>
@@ -47,7 +46,7 @@ class SidebarLeftSlideAlong extends Component {
                 {this.props.title}
         
                 <Divider fitted />
-                {<div>
+                {<div clasName="content">
                      {this.props.data.map(q => q)}
                 </div>}
                 </Segment>
