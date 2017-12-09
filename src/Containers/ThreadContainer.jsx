@@ -31,19 +31,33 @@ class ThreadContainer extends Component
           })
         .catch (error => this.setState({error: error.message}))
         .then (res => res.json())
-        .then (info => this.setState(
-            {   isLoggedIn:true,
-                question: info[0].question.questionText,
-                answers:info
+        .then (info => {
+            if (info.length===0){
+                this.setState({
+                    isLoggedIn:true,
+                })
             }
-        ))
+            else{
+                this.setState(
+                    {
+                        isLoggedIn:true,
+                        question: info[0].question.questionText,
+                        answers:info
+                    })
+            }
+        })
     }
 
     render()
     {
         let answers = this.state.answers;
         let question = this.state.question;
-        answers = answers.map(a => <Answer key={a.id_comments} ques={a.commentText}/>);
+        if (answers.length===0){
+            answers.push(<div> There are no answers </div>);
+        }
+        else{
+            answers = answers.map(a => <Answer key={a.id_comments} ques={a.commentText}/>);
+        }
         answers.push(<AddComment />)
         return([
                 <Sidebar title={<ThreadTitle title={question}/>} data={answers} />,

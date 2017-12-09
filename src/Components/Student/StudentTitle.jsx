@@ -8,10 +8,9 @@ class UserTitle extends Component {
     return(
       <div className = "UserTitle">
             <Header as='h2' icon>
-            <Icon name='settings' />
-            Account Settings
+            Your Profile
             <Header.Subheader>
-            Manage your account settings
+            Manage your settings
             </Header.Subheader>
           </Header>
     </div>

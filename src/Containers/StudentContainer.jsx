@@ -9,7 +9,8 @@ class UserProfileContainer extends Component {
     super();
     this.state = {
       isLoggedIn:false,
-      userInfo: []
+      userInfo: [],
+      courses:[]
     }
   }
 
@@ -28,14 +29,17 @@ class UserProfileContainer extends Component {
     })
     .then( results => {return results.json();})
     .then (data => {
-      this.setState({isLoggedIn:true, userInfo: data[0]})      
+      this.setState({isLoggedIn:true, userInfo: data, courses:data.courses})      
     })
   }
 
   render() {
 
     let userInfo = this.state.userInfo;
-    let d= [<StudentProfile info="userInfo"/>];
+    let courses = this.state.courses
+    console.log(userInfo);
+    console.log(userInfo);
+    let d= [<StudentProfile info={userInfo} courses={courses} />];
      return(
         <SideBar title={<UserTitle/>} data={d}/>
      )
