@@ -7,7 +7,7 @@ class LoginForm extends Component {
 
   render() { 
     return(
-    <div className='login-form'>
+    <div className='initial-form'>
     <AppTitle />
     <style>
       {`
@@ -23,11 +23,10 @@ class LoginForm extends Component {
       verticalAlign='middle'
     >
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as='h2' color='blue' textAlign='center'>
+        <Header as='h2' color='grey' textAlign='center'>
           {' '}Login to your account
           </Header>
         <Form size='large' onSubmit={this.props.submitHandler}>
-          <Segment stacked>
             <Form.Input
               fluid
               icon='user'
@@ -46,7 +45,6 @@ class LoginForm extends Component {
               name="password"
             />
             <Form.Button color='blue' fluid size='large'>Login</Form.Button>
-          </Segment>
         </Form>
             <Message>
               New to us? <Link to='/studentregister'>Register!</Link>

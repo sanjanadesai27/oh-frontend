@@ -1,3 +1,7 @@
 div.ui.stacked.segment {
   padding-top: 1.4em;
 }
+
+.initial-form { 
+  background-image: url('https://images.unsplash.com/photo-1468779036391-52341f60b55d?auto=format&fit=crop&w=1521&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');
+}

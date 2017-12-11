@@ -11,17 +11,17 @@ class SidebarLeftSlideAlong extends Component {
 
 
   toggleVisibility = () => this.setState({ visible: !this.state.visible })
-  handleSignOut=() => window.localStorage.setItem("userToken",null);
+  handleSignOut= () => window.localStorage.setItem("userToken",null)
 
   render() {
     let homeLink = `/feed/${this.state.id}`;
     let studentLink = `/student/${this.state.id}`;
     let tutorLink = `/tutor/${this.state.id}`;
-    const { visible } = this.state
+    const { visible } = this.state;
     return (
       <div className="NavWrapper">
         <Button className="feedBtn" onClick={this.toggleVisibility} > 
-        <Icon size="large" name="content" />
+          <Icon size="large" name="content" />
         </Button>
         <Title />
         <Sidebar.Pushable as={Segment}>
@@ -40,18 +40,14 @@ class SidebarLeftSlideAlong extends Component {
             </Menu.Item>
           </Sidebar>
           <Sidebar.Pusher>
-            <Segment basic>
-              <Header as='h3'></Header>
               <Segment >
                 {this.props.title}
-        
                 <Divider fitted />
                 {<div clasName="content">
                      {this.props.data.map(q => q)}
                 </div>}
                 </Segment>
               <Image src='/assets/images/wireframe/paragraph.png' />
-            </Segment>
           </Sidebar.Pusher>
         </Sidebar.Pushable>
       </div>

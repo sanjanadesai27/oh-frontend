@@ -12,7 +12,7 @@ class Home extends Component {
   }
   componentWillMount() { 
     if(window.localStorage.getItem("userToken")){
-      let token = JSON.parse(window.localStorage.getItem("userToken"));;
+      let token = JSON.parse(window.localStorage.getItem("userToken"));
       let id = JSON.parse(window.localStorage.getItem("id"));
       let header = new Headers({
         "Content-Type":"application/json",
@@ -40,18 +40,18 @@ class Home extends Component {
 
   handleLogin = () => { 
     this.props.history.push('/login');
-  }
+  };
 
   handleRegister = () => { 
     this.props.history.push('/studentregister');
-  }
+  };
 
   render() { 
     return( 
       <Segment
         inverted
         textAlign='center'
-        style={{ minHeight: 700, padding: '0em 0em' }}
+        style={{ minHeight: '1000px', padding: '1em 0' }}
         vertical
       >
       <Container text>
@@ -59,7 +59,7 @@ class Home extends Component {
           as='h1'
           content='OH.io'
           inverted
-          style={{ fontSize: '4em', fontWeight: 'normal', marginBottom: 0, marginTop: '0em' }}
+          style={{ fontSize: '4em', fontWeight: 'normal', marginBottom: 0, marginTop: '3.5em'}}
         />
         <Header
           as='h2'

@@ -6,14 +6,13 @@ import AppTitle from './AppTitle'
 class StudentRegister extends Component {
   render() {
        return (
-    <div>
+    <div className="initial-form">
       <AppTitle />
-      <div className='login-form'>
       <style>
           {`
         body > div,
         body > div > div,
-        body > div > div > div.login-form {
+        body > div > div > div.initial-form {
           height: 100%;
         }
       `}</style>
@@ -23,7 +22,7 @@ class StudentRegister extends Component {
           verticalAlign='middle'
         >
           <Grid.Column style={{ maxWidth: 800 }}>
-            <Header as='h2' color='blue' textAlign='center'>
+            <Header as='h2' color='grey' textAlign='center'>
               {' '}Create a Student Account
           </Header>
             <Form size='large' onSubmit={this.props.submitHandler}>
@@ -82,7 +81,6 @@ class StudentRegister extends Component {
           </Grid.Column>
         </Grid>
         </div>
-       </div>
     );
   }
 }
