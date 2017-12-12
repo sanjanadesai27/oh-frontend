@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Segment,Container, Icon,Button} from 'semantic-ui-react' 
+import {Segment,Container, Icon,Button,Form, Label} from 'semantic-ui-react' 
 
 class AddCommentForm extends Component { 
     constructor(){
@@ -12,13 +12,17 @@ class AddCommentForm extends Component {
     }
     handleSubmit = (e) =>{
         e.preventDefault();
-        let textComment = document.querySelector(".AddQInput1");
-        let formData = { textComment };
+        let token = JSON.parse(window.localStorage.getItem("userToken"));
+        let id = JSON.parse(window.localStorage.getItem('id'));
+        let comment = document.querySelector('div.field.comment textarea[name="comment"]').value;
+        let formData = { id, comment };
+        let header = new Headers({
+            "Content-Type": "application/json",
+            "Authorization": token
+        });
         fetch('/feed/question',
         {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'},
+            headers:header,
             method: 'POST',
             body: JSON.stringify(formData)
         })
@@ -27,15 +31,11 @@ class AddCommentForm extends Component {
     render() { 
         return(
          <Segment className="AddCommentFeedForm" secondary>
-             <div >
-                <form onSubmit={this.handleSubmit} >
-                <label className = "TopLabel">
-                    Comment: <br/>
-                    <input className="AddQInput1" type="text" name="course"/> <br/>
-                    </label><br/>
-                <br/>
-                </form>
-             </div>
+            <Form className="addComment" onSubmit={this.handleSubmit}>
+                <Label>Add a reponse</Label>
+                <Form.TextArea className="comment" name="comment" placeholder="Submit your response here"/>
+                <Button type="submit">Submit</Button>
+            </Form>
         </Segment>
       );
   }

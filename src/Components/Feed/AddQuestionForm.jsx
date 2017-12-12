@@ -7,7 +7,8 @@ class AddQuestionForm extends Component {
         super()
         this.state = {
           course:[],
-          question:[]
+          question:[],
+          success: false,
       }
     }
 
