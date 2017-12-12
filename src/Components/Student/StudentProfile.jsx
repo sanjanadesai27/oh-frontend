@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Header, Icon, Button, Grid, Image, Menu, Segment,  } from 'semantic-ui-react'
+import { Button, List, Segment, Form } from 'semantic-ui-react';
 
 class TutorProfile extends Component {
   render() {
@@ -8,37 +8,31 @@ class TutorProfile extends Component {
     if (!info) return null;
     return (
       <div>
-            <div className="studentInformation">
-              {this.props.info.username} <br/>
-              {this.props.info.email} <br/>
-              {this.props.info.name} {this.props.info.surname} <br/>
+        <Segment.Group> 
+          <Segment className="studentInformation">
+              Username: {this.props.info.username} <br/>
+              Email: {this.props.info.email} <br/>
+              Full Name: {this.props.info.name} {this.props.info.surname}
+            <Segment className="courses">
+              <div className="displayEnrolled">
+                Your Courses:
             </div>
-
-            <div className="studentCourses">
-                <div className="displayEnrolled">
-                    Your Courses:
-                </div>
-
-                 <div class="ui middle aligned divided list">
-                  {this.props.courses.map(c => <div class="item"> {c.department} {c.number} </div>)}
-                </div>
-
-                <div> Add a course </div>
-
-                <div class="ui form">
-                  <div class="fields">
-                      <div class="field">
-                        <input type="text" placeholder="Department"/>
-                      </div>
-                      
-                      <div class="field">
-                        <input type="text" placeholder="Course Number"/>
-                      </div>
-                      <div class="ui submit button">Submit</div>
-                  </div>
-                </div>
-
-            </div>
+              <List>
+                {this.props.courses.map(course => <List.Item>{course.department} {course.number}</List.Item>)}
+              </List>
+            </Segment>
+          </Segment>
+          <Segment>
+            <Form className="addCoursesForm"> 
+            <div>Add a course:</div>
+              <Form.Group widths="equal"> 
+                <Form.Input label="Department" placeholder="i.e. COMP"/>
+                <Form.Input label="Course Number" placeholder="i.e. 303"/>
+              </Form.Group> 
+              <Button type="submit">Submit</Button>
+            </Form> 
+          </Segment> 
+        </Segment.Group>
       </div>
     );
   }

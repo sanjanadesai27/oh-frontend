@@ -36,25 +36,12 @@ class AddQuestionForm extends Component {
 
     render() { 
         return(
-        <Segment className="AddQuestionFeedForm" secondary>
-        <Form onSubmit={this.handleSubmit}> 
-            <Form.Dropdown label="Course" options={options} placeholder="course" />
-            <Form.TextArea label='Question' placeholder=' i.e. "What is the difference between IP & TCP?' />
-            <Button type="submit" className="questionSubmit">Submit</Button> 
-        </Form>
-            
-             {/* <div >
-                <form onSubmit={this.handleSubmit} >
-                <label className = "TopLabel">
-                    Course: <br/>
-                    <input className="AddQInput1" type="text" name="course"/> <br/>
-                    </label><br/>
-                    Question: <br/>
-                    <input className="AddQInput2"  type="text" name="question"  /> <br/><br/>
-                <input type="submit" value="Submit" />
-                <br/>
-                </form>
-             </div> */}
+        <Segment className="AddQuestionFeedForm">
+            <Form className="AddQuestionFeedForm"onSubmit={this.handleSubmit}> 
+                <Form.Dropdown label="Course" options={options} placeholder="course" />
+                <Form.TextArea label='Question' placeholder=' i.e. "What is the difference between IP & TCP?' />
+                <Button type="submit" className="questionSubmit">Submit</Button> 
+            </Form>
         </Segment>
       );
   }

@@ -6,14 +6,7 @@ class UserTitle extends Component {
 
   render() {
     return(
-      <div className = "UserTitle">
-            <Header as='h2' icon>
-            Your Profile
-            <Header.Subheader>
-            Manage your settings
-            </Header.Subheader>
-          </Header>
-    </div>
+      <div className = "UserTitle"> Manage Your Profile </div>
     );
   }
 }

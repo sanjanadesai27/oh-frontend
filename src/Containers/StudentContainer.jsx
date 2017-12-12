@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import StudentProfile from '../Components/Student/StudentProfile';
 import SideBar from '../Components/SideBar';
 import UserTitle from '../Components/Student/StudentTitle';
-import history from '../Components/history'
+import history from '../Components/history';
 class UserProfileContainer extends Component {
 
   constructor () {
@@ -11,7 +11,7 @@ class UserProfileContainer extends Component {
       isLoggedIn:false,
       userInfo: [],
       courses:[]
-    }
+    };
   }
 
   componentWillMount() {
@@ -29,20 +29,18 @@ class UserProfileContainer extends Component {
     })
     .then( results => {return results.json();})
     .then (data => {
-      this.setState({isLoggedIn:true, userInfo: data, courses:data.courses})      
-    })
+      this.setState({isLoggedIn:true, userInfo: data, courses:data.courses});      
+    });
   }
 
   render() {
 
     let userInfo = this.state.userInfo;
-    let courses = this.state.courses
-    console.log(userInfo);
-    console.log(userInfo);
-    let d= [<StudentProfile info={userInfo} courses={courses} />];
+    let courses = this.state.courses;
+    let d= [<StudentProfile info={userInfo} courses={courses}/>];
      return(
         <SideBar title={<UserTitle/>} data={d}/>
-     )
+     );
   }
 
 }
