@@ -43,8 +43,9 @@ class SidebarLeftSlideAlong extends Component {
               <Container >
                 {this.props.title}
                 <Divider fitted />
-                {<div clasName="content">
+                {<div className="content">
                      {this.props.data.map(q => q)}
+                     {this.props.btn}
                 </div>}
                 </Container>
               <Image src='/assets/images/wireframe/paragraph.png' />

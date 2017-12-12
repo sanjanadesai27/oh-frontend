@@ -14,6 +14,7 @@ class Question extends Component {
               <div className="quesDescription">
                 {this.props.ques}
               </div>
+             <small> Submitted by {this.props.user} on {this.props.date} </small>
           </div>
 
         </div>
