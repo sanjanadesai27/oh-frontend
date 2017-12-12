@@ -64,7 +64,7 @@ class FeedContainer extends Component {
         }
       }
       questions = questions.map(q => <Question key={q.id_questions} id={q.id_questions} ques={q.questionText} title={ checkId(q.courseIdCourses) } />);
-      questions.push(<AddQuestion key="questionButton" />)
+      questions.push(<AddQuestion key="questionButton" courses={this.state.courses}/>)
     }
     else{
       questions.push(<AddCoursePrompt />)

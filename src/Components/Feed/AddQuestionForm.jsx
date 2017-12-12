@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
-import {Segment,Container, Icon,Button, Form} from 'semantic-ui-react' 
-
-const options = [ { key:"1" , text:"COMP307", value:"COMP307" },
-                  { key:"2" , text:"COMP303", value:"COMP303" }, 
-                  { key: "1", text: "COMP273", value: "COMP273" }];
-//note these are just place holder values - they need to be dynamically rendered based on the courses
-//that any student is in. -- fetch data from database
-
+import {Segment,Container, Icon,Button, Form, Label} from 'semantic-ui-react';
 
 class AddQuestionForm extends Component { 
+    
     constructor(){
         super()
         this.state = {
@@ -19,16 +13,23 @@ class AddQuestionForm extends Component {
     }
     handleSubmit = (e) =>{
         e.preventDefault();
-        let courseName = document.querySelector(".AddQInput1");
-        let question = document.querySelector(".AddQInput2");
-        let formData = { courseName, question };
+        let token = JSON.parse(window.localStorage.getItem("userToken"));
+        let id = JSON.parse(window.localStorage.getItem('id'));
+        let courseName = document.querySelector("select").value;
+        let question = document.querySelector('div.field.question textarea[name="question"]').value;
+        let formData = { id, courseName, question };
+        console.log(formData);
+        let header = new Headers({
+            "Content-Type": "application/json",
+            "Authorization": token
+        });
         fetch('/feed/question',
         {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'},
+            headers:header,
             method: 'POST',
-            body: JSON.stringify(formData)
+            body: JSON.stringify(formData),
+            mode: 'cors',
+            cache: 'default'
         })
     }
 
@@ -38,8 +39,12 @@ class AddQuestionForm extends Component {
         return(
         <Segment className="AddQuestionFeedForm">
             <Form className="AddQuestionFeedForm"onSubmit={this.handleSubmit}> 
-                <Form.Dropdown label="Course" options={options} placeholder="course" />
-                <Form.TextArea label='Question' placeholder=' i.e. "What is the difference between IP & TCP?' />
+                <Label>Course</Label>
+                    <select label= "course" className="ui dropdown">
+                        {this.props.courses.map(course => <option value={course}>{course}</option>)}
+                    </select>
+                <Label>Question</Label>
+                <Form.TextArea className="question" name="question" placeholder=' i.e. "What is the difference between IP & TCP?' />
                 <Button type="submit" className="questionSubmit">Submit</Button> 
             </Form>
         </Segment>

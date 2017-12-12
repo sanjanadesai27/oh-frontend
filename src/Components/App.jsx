@@ -66,7 +66,7 @@ class App extends Component {
     e.preventDefault();
     let name = document.querySelector('div.field.firstname input[name="firstname"]').value;
     let surname = document.querySelector('div.field.lastname input[name="lastname"]').value;
-    let username = document.querySelector('div.field.username input[name="username"').value;
+    let username = document.querySelector('div.field.username input[name="username"]').value;
     let email = document.querySelector('div.field.email input[name="email"]').value;
     let password = document.querySelector('div.field.password input[name="password"]').value;
     let year = document.querySelector('select').value;

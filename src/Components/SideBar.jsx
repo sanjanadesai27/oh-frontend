@@ -24,7 +24,7 @@ class SidebarLeftSlideAlong extends Component {
           <Icon size="large" name="content" />
         </Button>
         <Title />
-        <Sidebar.Pushable as={Container}>
+        <Sidebar.Pushable as={Container} className="mainBody">
           <Sidebar as={Menu} animation='slide along' width='thin' visible={visible} icon='labeled' vertical inverted>
             <Menu.Item name='home'>
               <Icon name='home' />
