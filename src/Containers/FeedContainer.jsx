@@ -56,7 +56,7 @@ class FeedContainer extends Component {
     let questions = this.state.questions;
     if (questions.length !=0){
       let checkId = function(x){
-        for(var i=0; i<courses.length; i++){
+        for(var i=0; i< courses.length; i++){
           if (courses[i][0]===x)
           {
           return courses[i][1];

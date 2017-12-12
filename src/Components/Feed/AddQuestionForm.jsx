@@ -19,8 +19,10 @@ class AddQuestionForm extends Component {
     }
     handleSubmit = (e) =>{
         e.preventDefault();
+        
         let courseName = document.querySelector(".AddQInput1");
         let question = document.querySelector(".AddQInput2");
+
         let formData = { courseName, question };
         fetch('/feed/question',
         {
@@ -40,7 +42,7 @@ class AddQuestionForm extends Component {
             <Form className="AddQuestionFeedForm"onSubmit={this.handleSubmit}> 
                 <Form.Dropdown label="Course" options={options} placeholder="course" />
                 <Form.TextArea label='Question' placeholder=' i.e. "What is the difference between IP & TCP?' />
-                <Button type="submit" className="questionSubmit">Submit</Button> 
+                <Button onSubmit={this.handleSubmit} type="submit" className="questionSubmit">Submit</Button> 
             </Form>
         </Segment>
       );
