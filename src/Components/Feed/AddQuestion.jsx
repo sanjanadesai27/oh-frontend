@@ -17,7 +17,7 @@ class AddQuestion extends Component {
         <div className="AddQuestionFeed">
             <Button onClick={this.toggle} content='Add Question' color="blue" />
        </div>,
-        <AddQuestionForm />
+        <AddQuestionForm courses={this.props.courses} />
       ]
       );
      }
