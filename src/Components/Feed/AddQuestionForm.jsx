@@ -7,7 +7,8 @@ class AddQuestionForm extends Component {
         super()
         this.state = {
           course:[],
-          question:[]
+          question:[],
+          success: false,
       }
       this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -30,10 +31,8 @@ class AddQuestionForm extends Component {
             body: JSON.stringify(formData),
             mode: 'cors',
             cache: 'default'
-        })
+        });
     }
-
-
 
     render() { 
         return(
