@@ -49,30 +49,6 @@ class FeedContainer extends Component {
           })
       }})
   }
-
-  handleSubmit = (e) =>{
-    e.preventDefault();
-    let token = JSON.parse(window.localStorage.getItem("userToken"));
-    let id = JSON.parse(window.localStorage.getItem('id'));
-    let courseName = document.querySelector("select").value;
-    let question = document.querySelector('div.field.question textarea[name="question"]').value;
-    let formData = { id, courseName, question };
-    console.log(formData);
-    let header = new Headers({
-        "Content-Type": "application/json",
-        "Authorization": token
-    });
-    fetch('/feed/question',
-    {
-        headers:header,
-        method: 'POST',
-        body: JSON.stringify(formData),
-        mode: 'cors',
-        cache: 'default'
-    })
-    .then(window.location.reload())
-  }
-
   render() { 
     //get student record
     let courses= this.state.courses;
@@ -88,8 +64,8 @@ class FeedContainer extends Component {
           }
         }
       }
-      questions = questions.map(q => <Question key={q.id_questions} id={q.id_questions} ques={q.questionText} title={ checkId(q.courseIdCourses) } date={q.created} user={q.studentIdStudents} />);
-      let btn =  questions.push(<AddQuestion key="questionButton" courses={this.state.courses} f={this.handleSubmit}/>);
+      questions = questions.map(q => <Question key={q.id_questions} id={q.id_questions} ques={q.questionText} title={ checkId(q.courseIdCourses) } date={q.created} user={q.username} />);
+      let btn =  questions.push(<AddQuestion key="questionButton" courses={this.state.courses}/>);
     }
 
     else{

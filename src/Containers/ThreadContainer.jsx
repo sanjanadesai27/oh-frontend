@@ -52,13 +52,14 @@ class ThreadContainer extends Component
     {
         let answers = this.state.answers;
         let question = this.state.question;
+        console.log(question);
         if (answers.length===0){
             answers.push(<div> There are no answers </div>);
         }
         else{
-            answers = answers.map(a => <Answer key={a.id_comments} ques={a.commentText}/>);
+            answers = answers.map(a => <Answer key={a.id_comments} date={a.created} ques={a.commentText} user={a.username}/>);
         }
-        answers.push(<AddComment />)
+        answers.push(<AddComment questionId={this.props.match.params.quesId} AddComment />)
         return([
                 <Sidebar title={<ThreadTitle title={question}/>} data={answers} />,
         ]);

@@ -14,18 +14,26 @@ class AddCommentForm extends Component {
         e.preventDefault();
         let token = JSON.parse(window.localStorage.getItem("userToken"));
         let id = JSON.parse(window.localStorage.getItem('id'));
+
+        let isStudent = true;
+        let quesId = this.props.questionId;
         let comment = document.querySelector('div.field.comment textarea[name="comment"]').value;
-        let formData = { id, comment };
+        let username = window.localStorage.getItem("username");
+        let formData = { id, comment, isStudent,quesId,username };
+        console.log(formData);
         let header = new Headers({
             "Content-Type": "application/json",
             "Authorization": token
         });
-        fetch('/feed/question',
+        fetch('/thread/comment/',
         {
             headers:header,
             method: 'POST',
-            body: JSON.stringify(formData)
+            body: JSON.stringify(formData),
+            mode: 'cors',
+            cache: 'default'
         })
+        .then(window.location.reload())
     }
 
     render() { 
