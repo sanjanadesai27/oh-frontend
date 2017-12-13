@@ -12,6 +12,7 @@ import StudentRegister from './StudentRegister.jsx';
 import Feed from '../Containers/FeedContainer';
 import Student from '../Containers/StudentContainer';
 import Thread from '../Containers/ThreadContainer';
+import CourseSelect from './Feed/CourseSelect.jsx';
 
 class App extends Component { 
   
@@ -92,7 +93,8 @@ class App extends Component {
           isLoggedIn: true,
           userId: res.user.id
         });
-        history.push(`/feed/${this.state.userId}`);
+        // history.push(`/feed/${this.state.userId}`);
+        history.push('/courses');
         
       } else { 
         this.setState({ 
@@ -107,6 +109,10 @@ class App extends Component {
       });
     }); 
   }
+
+
+
+
 
   componentDidMount() { 
     if(!this.state.isLoggedIn) { 
@@ -129,6 +135,10 @@ class App extends Component {
       return ( <StudentRegister submitHandler={this.registerHandler} /> )
     }
 
+    // const CourseSelectionPage = (props) => { 
+    //   return <CourseSelect submitHandler={this.handleCourseSubmit}/>
+    // }
+
     return(
       <Router history={history}> 
         <Switch>
@@ -136,8 +146,8 @@ class App extends Component {
           <Route path="/login" render={LoginPage} />
           <Route path="/studentregister" component={StudentRegistrationPage} />
           {/* <Route path="/tutorregister" component={TutorRegistrationPage}/> */}
-           <Route path="/feed/:id" component={Feed}/> 
-
+          <Route path="/feed/:id" component={Feed}/> 
+          <Route path="/courses" component={CourseSelect}/>
           <Route path="/student/:id" component={Student}/>
           {/* <Route path="/tutor/:id" component={User}/> */}
 
