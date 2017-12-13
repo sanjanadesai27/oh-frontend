@@ -5,7 +5,7 @@ import history from '../history';
 class AddQuestionForm extends Component { 
     
     constructor(){
-        super()
+        super();
         this.state = {
           course:[],
           question:[],
