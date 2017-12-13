@@ -5,7 +5,7 @@ class ThreadTitle extends Component
     render()
     {
         return(
-            <div className="threadTitle">
+            <div className="FeedTitle">
              {this.props.title}
              </div>
         )
