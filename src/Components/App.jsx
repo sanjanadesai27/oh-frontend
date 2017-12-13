@@ -43,6 +43,7 @@ class App extends Component {
         window.localStorage.setItem("userToken", JSON.stringify(res.token));
         window.localStorage.setItem("id", res.user.id);
         window.localStorage.setItem("username", res.user.username);
+        window.localStorage.setItem("isStudent", true);
         this.setState({
           isLoggedIn: true,
           userId: res.user.id
@@ -71,7 +72,8 @@ class App extends Component {
     let email = document.querySelector('div.field.email input[name="email"]').value;
     let password = document.querySelector('div.field.password input[name="password"]').value;
     let year = document.querySelector('select').value;
-    let formData = { name, surname, username, email, password, year }; 
+    let bool = true;
+    let formData = { name, surname, username, email, password, year, bool }; 
     console.log(formData);
     fetch('/createStudent',{ 
       headers: { 
@@ -115,10 +117,10 @@ class App extends Component {
     let username = document.querySelector('div.field.username input[name="username"]').value;
     let email = document.querySelector('div.field.email input[name="email"]').value;
     let password = document.querySelector('div.field.password input[name="password"]').value;
-
-    let formData = { name, surname, username, email, password}; 
+    let bool = false;
+    let formData = { name, surname, username, email, password, bool }; 
     console.log(formData);
-    fetch('/createTutor',{ 
+    fetch('/createStudent',{ 
       headers: { 
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -130,11 +132,10 @@ class App extends Component {
     .then(res => { 
       let token = res.token;
       if (token) {
-
         window.localStorage.setItem("userToken", JSON.stringify(res.token));
         window.localStorage.setItem("id", res.user.id);
         window.localStorage.setItem("username", res.user.username);
-
+        window.localStorage.setItem("isStudent",false);
         this.setState({
           isLoggedIn: true,
           userId: res.user.id
@@ -189,7 +190,7 @@ class App extends Component {
           <Route path="/tutorregister" component={TutorRegistrationPage}/>
            <Route path="/feed/:id" component={Feed}/> 
 
-          <Route path="/student/:id" component={Student}/>
+          <Route path="/profile/:id" component={Student}/>
           {/* <Route path="/tutor/:id" component={User}/> */}
 
           <Route path="/thread/:quesId" component={Thread}/>
