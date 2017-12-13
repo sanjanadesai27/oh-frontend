@@ -4,7 +4,7 @@ import {Segment,Container, Icon,Button, Form, Label} from 'semantic-ui-react';
 class AddQuestionForm extends Component { 
     
     constructor(){
-        super()
+        super();
         this.state = {
           course:[],
           question:[],
