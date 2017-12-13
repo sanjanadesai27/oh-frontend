@@ -13,9 +13,8 @@ class Answer extends Component {
               </div>
               <div className="quesDescription">
                 {this.props.ques}
-                <br/>
-                <span> Submitted by : user | Date:</span>
               </div>
+              <small> Submitted by {this.props.user} on {this.props.date} </small>
           </div>
 
         </div>

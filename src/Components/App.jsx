@@ -42,6 +42,7 @@ class App extends Component {
       if(token) { 
         window.localStorage.setItem("userToken", JSON.stringify(res.token));
         window.localStorage.setItem("id", res.user.id);
+        window.localStorage.setItem("username", res.user.username);
         this.setState({
           isLoggedIn: true,
           userId: res.user.id
@@ -86,6 +87,7 @@ class App extends Component {
       if (token) {
         window.localStorage.setItem("userToken", JSON.stringify(res.token));
         window.localStorage.setItem("id", res.user.id);
+        window.localStorage.setItem("username", res.user.username);
         this.setState({
           isLoggedIn: true,
           userId: res.user.id

@@ -17,7 +17,7 @@ class AddComment extends Component {
         <div className="AddCommentFeed">
             <Button onClick={this.toggle} content='Add Comment' color="blue" />
        </div>,
-        <AddCommentForm />
+        <AddCommentForm questionId={this.props.questionId} />
       ]
       );
      }
