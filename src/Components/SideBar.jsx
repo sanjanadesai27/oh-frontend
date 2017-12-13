@@ -15,8 +15,7 @@ class SidebarLeftSlideAlong extends Component {
 
   render() {
     let homeLink = `/feed/${this.state.id}`;
-    let studentLink = `/student/${this.state.id}`;
-    let tutorLink = `/tutor/${this.state.id}`;
+    let studentLink = `/profile/${this.state.id}`;
     const { visible } = this.state;
     return (
       <div className="NavWrapper">

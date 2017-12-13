@@ -76,7 +76,7 @@ class StudentRegister extends Component {
                 <Form.Button color='blue' fluid size='large'>Register</Form.Button>
             </Form>
             <Message>
-              Already have an account? <Link to='/login'>Login!</Link>
+              Already have an account? <Link to='/login'>Login!</Link> Are you a tutor? <Link to='/tutorregister'> Register as a tutor</Link> 
             </Message>
           </Grid.Column>
         </Grid>

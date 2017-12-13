@@ -42,6 +42,13 @@ class TutorRegister extends Component {
                     className="lastname"
                     name="lastname"
                   />
+                <Form.Input
+                  fluid
+                  iconPosition='left'
+                  placeholder='username'
+                  className="username"
+                  name="username"
+                />
                 </Form.Group>
                 <Form.Input
                   fluid
@@ -63,7 +70,7 @@ class TutorRegister extends Component {
                 <Form.Button color='blue' fluid size='large'>Register</Form.Button>
               </Form>
               <Message>
-                Already have an account? <Link to='/login'>Login!</Link>
+                Already have an account? <Link to='/login'>Login!</Link> Are you a student? Already have an account? <Link to='/studentregister'> Register as a student </Link>
               </Message>
             </Grid.Column>
           </Grid>
@@ -72,4 +79,4 @@ class TutorRegister extends Component {
     );
   }
 }
-export default StudentRegister; 
+export default TutorRegister; 

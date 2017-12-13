@@ -15,23 +15,13 @@ class TutorProfile extends Component {
               Full Name: {this.props.info.name} {this.props.info.surname}
             <Segment className="courses">
               <div className="displayEnrolled">
-                Your Courses:
+                You are registered in:
             </div>
               <List>
                 {this.props.courses.map(course => <List.Item>{course.department} {course.number}</List.Item>)}
               </List>
             </Segment>
           </Segment>
-          <Segment>
-            <Form className="addCoursesForm"> 
-            <div>Add a course:</div>
-              <Form.Group widths="equal"> 
-                <Form.Input label="Department" placeholder="i.e. COMP"/>
-                <Form.Input label="Course Number" placeholder="i.e. 303"/>
-              </Form.Group> 
-              <Button type="submit">Submit</Button>
-            </Form> 
-          </Segment> 
         </Segment.Group>
       </div>
     );
