@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Segment,Container, Icon,Button, Form, Label} from 'semantic-ui-react';
+import history from '../history';
 
 class AddQuestionForm extends Component { 
     
